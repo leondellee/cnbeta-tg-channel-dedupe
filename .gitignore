@@ -1,0 +1,10 @@
+# 本地配置：含 bot token，绝不能提交
+config.json
+
+# 本地抓样本用
+probe/
+*.tmp
+
+__pycache__/
+*.pyc
+.DS_Store

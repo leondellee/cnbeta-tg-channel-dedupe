@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>cnBeta - 软硬件与技术 (Technology &amp; Products) – Telegram</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible"
+     content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    
+<meta property="og:title" content="cnBeta - 软硬件与技术 (Technology &amp; Products)">
+<meta property="og:image" content="https://cdn5.telesco.pe/file/v-SjOu6cua7W_tNkbfxU9FTGBAeail3kqQ4I7tdKjoKv2yUpASWBzT13V1iiJHwqVvAgYmYH45qvtRs6AMFIK2AHt_Suqtu8qhgJ0WjEk0joOEZdTR-zaffYaoomPuLII4paGA6QRS9o1nXk1ThEsjKRXk9XXRi6bvZ1t_ottdZJc23zR311uiEvVdIPjDqfhEyjGh52bM3872sKxiDKs2FgGgJOUC4DUYfs9s_dtkCJkcUoKd8I06wWLluBf_TxbflIBy3GeZwC6XaWst6rOaKtPvQYxj5hjhyABK5gz4vRidQ9EWqqqHnbePcMkC5yyom5dcQg-EzxwyLUJcab9g.jpg">
+<meta property="og:site_name" content="Telegram">
+<meta property="og:description" content="聚焦技术逻辑，追踪产品演进。本频道专注于代码算法、芯片微架构、硬件设备参数以及网络安全动态。凡涉及技术如何实现、系统功能升级、软硬件性能表现及漏洞修补，皆在此深度呈现，为您构建纯粹的技术与产品信息流。
+
+cnBeta总频道 @cnbeta_com（仅推送精选）
+软硬件技术 @cnbeta_com_tech
+互动与娱乐 @cnbeta_com_media
+商业与产业 @cnbeta_com_business
+热点与趣闻 @cnbeta_com_buzz">
+
+<meta property="twitter:title" content="cnBeta - 软硬件与技术 (Technology &amp; Products)">
+<meta property="twitter:image" content="https://cdn5.telesco.pe/file/v-SjOu6cua7W_tNkbfxU9FTGBAeail3kqQ4I7tdKjoKv2yUpASWBzT13V1iiJHwqVvAgYmYH45qvtRs6AMFIK2AHt_Suqtu8qhgJ0WjEk0joOEZdTR-zaffYaoomPuLII4paGA6QRS9o1nXk1ThEsjKRXk9XXRi6bvZ1t_ottdZJc23zR311uiEvVdIPjDqfhEyjGh52bM3872sKxiDKs2FgGgJOUC4DUYfs9s_dtkCJkcUoKd8I06wWLluBf_TxbflIBy3GeZwC6XaWst6rOaKtPvQYxj5hjhyABK5gz4vRidQ9EWqqqHnbePcMkC5yyom5dcQg-EzxwyLUJcab9g.jpg">
+<meta property="twitter:site" content="@Telegram">
+
+<meta property="al:ios:app_store_id" content="686449807">
+<meta property="al:ios:app_name" content="Telegram Messenger">
+<meta property="al:ios:url" content="tg://resolve?domain=cnbeta_com_tech">
+
+<meta property="al:android:url" content="tg://resolve?domain=cnbeta_com_tech">
+<meta property="al:android:app_name" content="Telegram">
+<meta property="al:android:package" content="org.telegram.messenger">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@Telegram">
+<meta name="twitter:description" content="聚焦技术逻辑，追踪产品演进。本频道专注于代码算法、芯片微架构、硬件设备参数以及网络安全动态。凡涉及技术如何实现、系统功能升级、软硬件性能表现及漏洞修补，皆在此深度呈现，为您构建纯粹的技术与产品信息流。
+
+cnBeta总频道 @cnbeta_com（仅推送精选）
+软硬件技术 @cnbeta_com_tech
+互动与娱乐 @cnbeta_com_media
+商业与产业 @cnbeta_com_business
+热点与趣闻 @cnbeta_com_buzz
+">
+
+    <link rel="prev" href="/s/cnbeta_com_tech?before=3343">
+<link rel="canonical" href="/s/cnbeta_com_tech?before=3363">
+
+    <script>window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches&&document.documentElement&&document.documentElement.classList&&document.documentElement.classList.add('theme_dark');</script>
+    <link rel="icon" type="image/svg+xml" href="//telegram.org/img/website_icon.svg?4">
+<link rel="apple-touch-icon" sizes="180x180" href="//telegram.org/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="//telegram.org/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="//telegram.org/img/favicon-16x16.png">
+<link rel="alternate icon" href="//telegram.org/img/favicon.ico" type="image/x-icon" />
+    <link href="//telegram.org/css/font-roboto.css?1" rel="stylesheet" type="text/css">
+    <link href="//telegram.org/css/widget-frame.css?75" rel="stylesheet" media="screen">
+    <link href="//telegram.org/css/telegram-web.css?39" rel="stylesheet" media="screen">
+    <script>TBaseUrl='/';</script>
+    <style>        .user-color-12 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #3391d4 0px, #3391d4 5px, #7dd3f0 5px, #7dd3f0 10px);
+          --user-accent-color: #3391d4;
+          --user-background: #3391d41f;
+        }        .user-color-10 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #27a910 0px, #27a910 5px, #a7dc57 5px, #a7dc57 10px);
+          --user-accent-color: #27a910;
+          --user-background: #27a9101f;
+        }        .user-color-8 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #e0802b 0px, #e0802b 5px, #fac534 5px, #fac534 10px);
+          --user-accent-color: #e0802b;
+          --user-background: #e0802b1f;
+        }        .user-color-7 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #e15052 0px, #e15052 5px, #f9ae63 5px, #f9ae63 10px);
+          --user-accent-color: #e15052;
+          --user-background: #e150521f;
+        }        .user-color-9 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #a05ff3 0px, #a05ff3 5px, #f48fff 5px, #f48fff 10px);
+          --user-accent-color: #a05ff3;
+          --user-background: #a05ff31f;
+        }        .user-color-11 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #27acce 0px, #27acce 5px, #82e8d6 5px, #82e8d6 10px);
+          --user-accent-color: #27acce;
+          --user-background: #27acce1f;
+        }        .user-color-13 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #dd4371 0px, #dd4371 5px, #ffbe9f 5px, #ffbe9f 10px);
+          --user-accent-color: #dd4371;
+          --user-background: #dd43711f;
+        }        .user-color-14 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #247bed 0px, #247bed 5px, #f04856 5px, #f04856 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #247bed;
+          --user-background: #247bed1f;
+        }        .user-color-15 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #d67722 0px, #d67722 5px, #1ea011 5px, #1ea011 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #d67722;
+          --user-background: #d677221f;
+        }        .user-color-16 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #179e42 0px, #179e42 5px, #e84a3f 5px, #e84a3f 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #179e42;
+          --user-background: #179e421f;
+        }        .user-color-17 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #2894af 0px, #2894af 5px, #6fc456 5px, #6fc456 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #2894af;
+          --user-background: #2894af1f;
+        }        .user-color-18 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #0c9ab3 0px, #0c9ab3 5px, #ffad95 5px, #ffad95 10px, #ffe6b5 10px, #ffe6b5 15px);
+          --user-accent-color: #0c9ab3;
+          --user-background: #0c9ab31f;
+        }        .user-color-19 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #7757d6 0px, #7757d6 5px, #f79610 5px, #f79610 10px, #ffde8e 10px, #ffde8e 15px);
+          --user-accent-color: #7757d6;
+          --user-background: #7757d61f;
+        }        .user-color-20 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #1585cf 0px, #1585cf 5px, #f2ab1d 5px, #f2ab1d 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #1585cf;
+          --user-background: #1585cf1f;
+        }        body.dark .user-color-12, html.theme_dark .user-color-12 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #52bfff 0px, #52bfff 5px, #0b5494 5px, #0b5494 10px);
+          --user-accent-color: #52bfff;
+          --user-background: #52bfff1f;
+        }        body.dark .user-color-10, html.theme_dark .user-color-10 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #a7eb6e 0px, #a7eb6e 5px, #167e2d 5px, #167e2d 10px);
+          --user-accent-color: #a7eb6e;
+          --user-background: #a7eb6e1f;
+        }        body.dark .user-color-8, html.theme_dark .user-color-8 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #ecb04e 0px, #ecb04e 5px, #c35714 5px, #c35714 10px);
+          --user-accent-color: #ecb04e;
+          --user-background: #ecb04e1f;
+        }        body.dark .user-color-7, html.theme_dark .user-color-7 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #ff9380 0px, #ff9380 5px, #992f37 5px, #992f37 10px);
+          --user-accent-color: #ff9380;
+          --user-background: #ff93801f;
+        }        body.dark .user-color-9, html.theme_dark .user-color-9 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #c697ff 0px, #c697ff 5px, #5e31c8 5px, #5e31c8 10px);
+          --user-accent-color: #c697ff;
+          --user-background: #c697ff1f;
+        }        body.dark .user-color-11, html.theme_dark .user-color-11 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #40d8d0 0px, #40d8d0 5px, #045c7f 5px, #045c7f 10px);
+          --user-accent-color: #40d8d0;
+          --user-background: #40d8d01f;
+        }        body.dark .user-color-13, html.theme_dark .user-color-13 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #ff86a6 0px, #ff86a6 5px, #8e366e 5px, #8e366e 10px);
+          --user-accent-color: #ff86a6;
+          --user-background: #ff86a61f;
+        }        body.dark .user-color-14, html.theme_dark .user-color-14 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #3fa2fe 0px, #3fa2fe 5px, #e5424f 5px, #e5424f 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #3fa2fe;
+          --user-background: #3fa2fe1f;
+        }        body.dark .user-color-15, html.theme_dark .user-color-15 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #ff905e 0px, #ff905e 5px, #32a527 5px, #32a527 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #ff905e;
+          --user-background: #ff905e1f;
+        }        body.dark .user-color-16, html.theme_dark .user-color-16 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #66d364 0px, #66d364 5px, #d5444f 5px, #d5444f 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #66d364;
+          --user-background: #66d3641f;
+        }        body.dark .user-color-17, html.theme_dark .user-color-17 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #22bce2 0px, #22bce2 5px, #3da240 5px, #3da240 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #22bce2;
+          --user-background: #22bce21f;
+        }        body.dark .user-color-18, html.theme_dark .user-color-18 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #22bce2 0px, #22bce2 5px, #ff9778 5px, #ff9778 10px, #ffda6b 10px, #ffda6b 15px);
+          --user-accent-color: #22bce2;
+          --user-background: #22bce21f;
+        }        body.dark .user-color-19, html.theme_dark .user-color-19 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #9791ff 0px, #9791ff 5px, #f2731d 5px, #f2731d 10px, #ffdb59 10px, #ffdb59 15px);
+          --user-accent-color: #9791ff;
+          --user-background: #9791ff1f;
+        }        body.dark .user-color-20, html.theme_dark .user-color-20 {
+          --user-line-gradient: repeating-linear-gradient(-45deg, #3da6eb 0px, #3da6eb 5px, #eea51d 5px, #eea51d 10px, #ffffff 10px, #ffffff 15px);
+          --user-accent-color: #3da6eb;
+          --user-background: #3da6eb1f;
+        }.user-color-6, .user-color-4, .user-color-2, .user-color-0, .user-color-1, .user-color-3, .user-color-5,   .user-color-default {
+    --user-accent-color: var(--accent-color);
+    --user-accent-background: var(--accent-background);
+    --user-line-gradient: linear-gradient(45deg, var(--accent-color), var(--accent-color));
+  }</style>
+  </head>
+  <body class="widget_frame_base tgme_webpreview emoji_image thin_box_shadow tme_mode no_transitions">
+    <div class="tgme_background_wrap">
+      <canvas id="tgme_background" class="tgme_background" width="50" height="50" data-colors="dbddbb,6ba587,d5d88d,88b884"></canvas>
+      <div class="tgme_background_pattern"></div>
+    </div>
+    <header class="tgme_header search_collapsed">
+  <div class="tgme_container">
+    <div class="tgme_header_search">
+      <form class="tgme_header_search_form" action="/s/cnbeta_com_tech">
+        <svg class="tgme_header_search_form_icon" width="20" height="20" viewBox="0 0 20 20"><g fill="none" stroke="#7D7F81" stroke-width="1.4"><circle cx="9" cy="9" r="6"></circle><path d="M13.5,13.5 L17,17" stroke-linecap="round"></path></g></svg>
+        <input class="tgme_header_search_form_input js-header_search" placeholder="Search" name="q" autocomplete="off" value="" />
+        <a href="/s/cnbeta_com_tech" class="tgme_header_search_form_clear"><svg class="tgme_action_button_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20"><g class="icon_body" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#000000" stroke-width="1.5"><path d="M6 14l8-8m0 8L6 6" stroke-dasharray="0,11.314" stroke-dashoffset="5.657"/><path d="M26 14l8-8m0 8l-8-8" stroke-dasharray="0.371,10.943" stroke-dashoffset="5.842"/><path d="M46 14l8-8m0 8l-8-8" stroke-dasharray="1.982,9.332" stroke-dashoffset="6.647756"/><path d="M66 14l8-8m0 8l-8-8" stroke-dasharray="5.173,6.14" stroke-dashoffset="8.243"/><path d="M86 14l8-8m0 8l-8-8" stroke-dasharray="7.866,3.448" stroke-dashoffset="9.59"/><path d="M106 14l8-8m0 8l-8-8" stroke-dasharray="9.471,1.843" stroke-dashoffset="10.392"/><path d="M126 14l8-8m0 8l-8-8" stroke-dasharray="10.417,0.896" stroke-dashoffset="10.866"/><path d="M146 14l8-8m0 8l-8-8" stroke-dasharray="10.961,0.353" stroke-dashoffset="11.137"/><path d="M166 14l8-8m0 8l-8-8" stroke-dasharray="11.234,0.08" stroke-dashoffset="11.274"/><path d="M186 14l8-8m0 8l-8-8"/></g></svg></a>
+      </form>
+    </div>
+    <div class="tgme_header_right_column">
+      <section class="tgme_right_column">
+        <div class="tgme_channel_info">
+          <div class="tgme_channel_info_header">
+            <i class="tgme_page_photo_image bgcolor4" data-content="cP"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i>
+            <div class="tgme_channel_info_header_title_wrap">
+              <div class="tgme_channel_info_header_title"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></div>
+              <div class="tgme_channel_info_header_labels"></div>
+            </div>
+            <div class="tgme_channel_info_header_username"><a href="https://t.me/cnbeta_com_tech">@cnbeta_com_tech</a></div>
+          </div>
+          <div class="tgme_channel_info_counters"><div class="tgme_channel_info_counter"><span class="counter_value">57</span> <span class="counter_type">subscribers</span></div><div class="tgme_channel_info_counter"><span class="counter_value">3.35K</span> <span class="counter_type">links</span></div></div>
+          <div class="tgme_channel_info_description">聚焦技术逻辑，追踪产品演进。本频道专注于代码算法、芯片微架构、硬件设备参数以及网络安全动态。凡涉及技术如何实现、系统功能升级、软硬件性能表现及漏洞修补，皆在此深度呈现，为您构建纯粹的技术与产品信息流。<br/><br/>cnBeta总频道 <a href="https://t.me/cnbeta_com" target="_blank">@cnbeta_com</a>（仅推送精选）<br/>软硬件技术 <a href="https://t.me/cnbeta_com_tech" target="_blank">@cnbeta_com_tech</a><br/>互动与娱乐 <a href="https://t.me/cnbeta_com_media" target="_blank">@cnbeta_com_media</a><br/>商业与产业 <a href="https://t.me/cnbeta_com_business" target="_blank">@cnbeta_com_business</a><br/>热点与趣闻 <a href="https://t.me/cnbeta_com_buzz" target="_blank">@cnbeta_com_buzz</a></div>
+          <a class="tgme_channel_download_telegram" href="//telegram.org/dl?tme=83058fb655d4618262_5336615309233848775">
+            <svg class="tgme_channel_download_telegram_icon" width="21px" height="18px" viewBox="0 0 21 18"><g fill="none"><path fill="#ffffff" d="M0.554,7.092 L19.117,0.078 C19.737,-0.156 20.429,0.156 20.663,0.776 C20.745,0.994 20.763,1.23 20.713,1.457 L17.513,16.059 C17.351,16.799 16.62,17.268 15.88,17.105 C15.696,17.065 15.523,16.987 15.37,16.877 L8.997,12.271 C8.614,11.994 8.527,11.458 8.805,11.074 C8.835,11.033 8.869,10.994 8.905,10.958 L15.458,4.661 C15.594,4.53 15.598,4.313 15.467,4.176 C15.354,4.059 15.174,4.037 15.036,4.125 L6.104,9.795 C5.575,10.131 4.922,10.207 4.329,10.002 L0.577,8.704 C0.13,8.55 -0.107,8.061 0.047,7.614 C0.131,7.374 0.316,7.182 0.554,7.092 Z"></path></g></svg>Download Telegram
+          </a>
+          <div class="tgme_footer">
+            <div class="tgme_footer_column">
+              <h5><a href="//telegram.org/faq">About</a></h5>
+            </div>
+            <div class="tgme_footer_column">
+              <h5><a href="//telegram.org/blog">Blog</a></h5>
+            </div>
+            <div class="tgme_footer_column">
+              <h5><a href="//telegram.org/apps">Apps</a></h5>
+            </div>
+            <div class="tgme_footer_column">
+              <h5><a href="//core.telegram.org/">Platform</a></h5>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="tgme_header_info">
+      <a class="tgme_channel_join_telegram" href="//telegram.org/dl?tme=83058fb655d4618262_5336615309233848775">
+        <svg class="tgme_channel_join_telegram_icon" width="19px" height="16px" viewBox="0 0 19 16"><g fill="none"><path fill="#ffffff" d="M0.465,6.638 L17.511,0.073 C18.078,-0.145 18.714,0.137 18.932,0.704 C19.009,0.903 19.026,1.121 18.981,1.33 L16.042,15.001 C15.896,15.679 15.228,16.111 14.549,15.965 C14.375,15.928 14.211,15.854 14.068,15.748 L8.223,11.443 C7.874,11.185 7.799,10.694 8.057,10.345 C8.082,10.311 8.109,10.279 8.139,10.249 L14.191,4.322 C14.315,4.201 14.317,4.002 14.195,3.878 C14.091,3.771 13.926,3.753 13.8,3.834 L5.602,9.138 C5.112,9.456 4.502,9.528 3.952,9.333 L0.486,8.112 C0.077,7.967 -0.138,7.519 0.007,7.11 C0.083,6.893 0.25,6.721 0.465,6.638 Z"></path></g></svg>Join
+      </a>
+      <a class="tgme_header_link" href="https://t.me/cnbeta_com_tech">
+        <i class="tgme_page_photo_image bgcolor4" data-content="cP"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i>
+        <div class="tgme_header_title_wrap">
+          <div class="tgme_header_title"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></div>
+          <div class="tgme_header_labels"></div>
+        </div>
+        <div class="tgme_header_counter">57 subscribers</div>
+      </a>
+    </div>
+  </div>
+</header>
+<main class="tgme_main" data-url="/cnbeta_com_tech">
+  <div class="tgme_container">
+    <section class="tgme_channel_history js-message_history">
+      <div class="tgme_widget_message_centered js-messages_more_wrap"><a href="/s/cnbeta_com_tech?before=3343" class="tme_messages_more js-messages_more" data-before="3343"></a></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3343" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM0MywidCI6MTc5Mzc4MDI0NywiaCI6ImIxOWViYWY5OWMyYjk0NWMwNiJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584918.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>​多年预警仍未阻止创纪录盗窃案 币安事件暴露朝鲜黑客长期渗透策略</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584918.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/van5scYGpOAWbZLn_nSg7U4B-85emikbwlHGITAW8cyKYMlVhiO55ch2og8WrNEL-aKnj1HYK2LhTZZML7Qhw_9vwejpVLiFj1ClHV1AS9umr-ciWpZJcuVo7cY-q8Y6zqG60BZjpGmbsdwcWyY-DaOX7hMAtgY3xG44tQr5FtH9KrVodfkTJStk8e32-XehZ3BBeVRz7heVK1vuD09PGfhEdR_bb-sYy00uW6FslSfoaKB5dDPUThAOx31ixLfFHsUeDXLx4rUu3EvUXQiVETd_eRMG1jow1noRlfnuViOZB_oJplsywpPXTGFc0TrMDapN-sg09VJNx1qw3puu2A.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">​多年预警仍未阻止创纪录盗窃案 币安事件暴露朝鲜黑客长期渗透策略</div>
+  <div class="link_preview_description" dir="auto">全球最大加密货币交易所币安日前披露的最新调查细节显示，造成63亿美元加密资产被盗的网络攻击并非一次突然发动的行动，而是一场持续数月、经过精心策划的社会工程学渗透行动。事实上，安全研究人员多年来一直在警告业内警惕类似攻击，但这一创下加密货币行业史上最大盗窃纪录的事件仍然发生。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">9</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3343"><time datetime="2026-11-03T19:54:47+00:00" class="time">19:54</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3344" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM0NCwidCI6MTc5Mzc4MDI0NywiaCI6ImY1MzEzZjU4Y2M4NDkzMWQzMyJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584920.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>iOS 27.3开发者测试版将Apple Intelligence带入中国市场</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584920.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/KCjyR4C6L0_OXh7aAlOee-2TTf5frqri65aXDxMB0JDdcv7dUv8o8HpWAETC9ElrlUafN_5_Ke0xEYwwzqDkktBzsHSVaEhzMApiXZDjJ4fbLDsGrHIFqLajbEFU5efTCZODC1bdfkujtK9tORef51AAd4dW7RLXdNwesvecerutmF5kpIEY3Lvp4MGxgY_7ttJ9qUSB7tFlwBWAVkN68iP6ewv4avt9Cntn4M9XYi0ux5OZwaYIBTMK307mWEwaIMHDxHKgTo2nsQwt_q94Dl_G8TbJur_FhE0Inbfap65oOtPBBoFzCmjYYteDW5VkX3cbUjB7GsRU_32HGYYDZw.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">iOS 27.3开发者测试版将Apple Intelligence带入中国市场</div>
+  <div class="link_preview_description" dir="auto">在经历近两年的等待后，苹果面向开发者发布的首个iOS27.3测试版已正式将AppleIntelligence引入中国市场，部分人工智能功能开始向中国用户开放。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">7</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3344"><time datetime="2026-11-03T22:06:15+00:00" class="time">22:06</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3345" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM0NSwidCI6MTc5Mzc4MDI0NywiaCI6IjNhZGRmMDdiOGM3OGRjMjI2ZCJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584926.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>iPhone 18标准版传闻汇总：电池容量有望进一步增加 或再次提高售价</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584926.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/BIDgc5ohJAENH8ybDip7cF8DcaDGU0bIDeL8vSNWC1x60iKeMuP2rq_qIVC1bNwDcgn5CLc60T0_ERZweWefizuplSOd82twRJMouVbTRXjL_m2z0z6zG-yh0yccICB475BjgjFjT7C_9QpdDHg-R4kaaSFT9-J1yp34beGc5XvolpXencuX6ITdx4UjPXaZ5aI5KvWbQVVcveQdxa0xTkjjOial2mR1YLeWg0ck-ZlLn3nF39-dD-b8fOVKGz3Ola1unnDXAhdJXqTJ9sCg4M1EjQD576V1kbQyHhdE_p48QursiujS1RCQAO02BiIqzakN62x6tuaszzabMbR5nQ.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">iPhone 18标准版传闻汇总：电池容量有望进一步增加 或再次提高售价</div>
+  <div class="link_preview_description" dir="auto">苹果标准版iPhone18尚未正式发布，但有关这款手机的配置和价格信息已经开始浮出水面。根据知名爆料人士数码闲聊站在微博发布的消息，苹果计划为标准版iPhone18配备更大容量的电池，同时采用新一代2纳米制程A20芯片。不过，这些升级可能伴随着售价上涨。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">6</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3345"><time datetime="2026-11-03T22:11:56+00:00" class="time">22:11</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3346" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM0NiwidCI6MTc5Mzc4MDI0NywiaCI6IjQ1MTEyMTA1YWExMDllZmU2NCJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584928.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>苹果向第三方应用全面开放Siri AI 开发者可打造跨应用智能代理</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584928.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/La-XaWXem8RcPz1XntSgB0h123LBpr2IyJnDx3PJMtMFNo0cuk6XleQPu0dKWzaa3N9YjddIMC9gv3sEq7i-Qe6PvLlFdXi0lnQHJKIJY54a0n8DzAu4F1oJLmiIYRO_XuVjCdQULZXcDNDFNX-rXUh3db8oEYUpILNqxhJDN1ns5DHQnR8hHFqvP2H4C6FOXMh9tps75rxYih46b8Sci_y3TFMPxYFoTA8Akrjja4LTvcfDpkd-3PXQymL4H8jZTKdph-HFaE7qKAzwxPHvXmwsTEg_uPkO6H7RHiGR_rt4lgXLF_OiRkG3rABe6RYVXIxgGWwWu5XVozgYDpkofg.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">苹果向第三方应用全面开放Siri AI 开发者可打造跨应用智能代理</div>
+  <div class="link_preview_description" dir="auto">苹果宣布进一步扩展SiriAI能力边界。随着iOS27.3开发者预览版发布，公司正式向第三方开发者开放SiriAI集成接口，允许各类应用接入新一代智能助手能力，使其能够理解自然语言指令、结合用户个人上下文，并利用屏幕内容感知功能执行更加复杂的任务。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">6</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3346"><time datetime="2026-11-03T22:12:59+00:00" class="time">22:12</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3347" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM0NywidCI6MTc5Mzc4MDI0NywiaCI6IjhhNzJlMDgxZDZiZmNjZjI1YSJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584932.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>黑客团队演示突破iPhone锁定模式 越狱状态甚至可在系统更新后保留</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584932.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/VIlKIQsQ3GNFnT8gqQxpVBbhN48RL_XBA1CKaktKbuxu7fF3knWNnCLTZL8potzwq95ohiOl4NFCEPDMANu5XRyQAcZjt9IsxYOsH3x3QHzOKo3Iu3BN8CjK0JHDnVR1d4dD1eV6YAc3BVs7QSb3mS0RwSux-T-jNqU7Hyv0QHZrFjtZy7cdXJr9i1sGi_324U3BWYLt_bRU1TYGldWSoZEnSMQkIAyBUpO66_haYNy7A1cqj18XRrg3zssmxYBP02DjV7Bcy7hIwO68YJQN4pp0c14h_VzFW6e9qhNxa_WipLxN7Z1uXMBBRPSohKSHNHmwqKCw1lBfO1WvwPu9qw.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">黑客团队演示突破iPhone锁定模式 越狱状态甚至可在系统更新后保留</div>
+  <div class="link_preview_description" dir="auto">苹果面向高风险用户推出的“锁定模式”（LockdownMode）一直被视为iPhone最强等级的安全防护机制之一，但最新演示显示，即使启用了这一模式，设备仍有可能遭到越狱。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">6</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3347"><time datetime="2026-11-03T22:30:35+00:00" class="time">22:30</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3348" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM0OCwidCI6MTc5Mzc4MDI0NywiaCI6ImY5ODM3ZjllMGYzMmI5MmRhMiJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584936.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>微软在Windows 11测试版中预览从搜索栏直接打开Android应用 将手机应用投屏到电脑</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584936.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/WrXaW6_v0yVpL7WB_8pdcSrxSVoxS0P9jdAjUCA0BdPOa1OLQO1hxeHGuCHdZChY054hihBj5Mf3Z6YgPM4Zxt6isgVL7mPL5oOyZsKy3xs-NOhNd24GZxiL5PRcneUp02SNwEdYdFF3sEda6jQUYROPqZZa41lmMi8xzTILh0iUUZSwPX3XT5PVHH1fgjOK9ydRiRygcJnzkyN6p2WrNJ3Ozpzk6SOJAa9OAZIX-OtCzy5NmyVbKF4lUwLT9h6vgz8dwmxQWRLlG4nEXz0_Uo47ctUpW6F5hw_pTXuN4emBnBqKW0rJzaPvDXRNUKBzSki_QULsFri6qPgxy8h9yQ.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">微软在Windows 11测试版中预览从搜索栏直接打开Android应用 将手机应用投屏到电脑</div>
+  <div class="link_preview_description" dir="auto">微软正在加强Windows11系统的搜索功能与Android设备的联动，在最新测试版中，用户将兼容的Android设备与电脑连接后，可以直接在任务栏搜索设备上的应用，点击搜索结果就可以在电脑上启动和执行操作。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">3</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3348"><time datetime="2026-11-04T05:45:45+00:00" class="time">05:45</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3349" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM0OSwidCI6MTc5Mzc4MDI0NywiaCI6IjE4YTczMmE5MmRmOTk4YTE0YyJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584938.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>Google为Android推出照片/视频自动备份 通过快速共享直接保存到Windows PC</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584938.htm">
+  
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">Google为Android推出照片/视频自动备份 通过快速共享直接保存到Windows PC</div>
+  <div class="link_preview_description" dir="auto">Google目前正在通过GooglePlay服务更新为Android设备带来自动备份功能：该功能可以将Android设备上的媒体库内容自动备份到WindowsPC中，备份过程不需要用户手动干预，即配置好后以后Android设备可以实现自动备份。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">3</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3349"><time datetime="2026-11-04T05:46:44+00:00" class="time">05:46</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3350" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1MCwidCI6MTc5Mzc4MDI0NywiaCI6ImYyMTg2ZmEyYjU3NDIzYzgxYSJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584940.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>Google将推出Quick Share SDK Android与iOS应用明年起可绕过系统分享菜单</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584940.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/rMNglGVoMaZES5r3tpRd6V67-f8GjVLoRz_w4L5wYKU7jbj763hSrai2bEjw3HHMWfZyP0lGmXAai_Yaoc4J0r4SRc09_fwknC3BfByv4QDpGAxJ3zI2XLLWh60LJXGbbjeMZX0tw1DONlPMsD8wwA23EOTOxqLjsaS_6C7NPqn0OkFgI6dk1HcBIg3T33wX1sud4s3Wf9dNxdrVcPdAXVhqDfpUFoF8KvEQvHXPGv0lp-Kz2EcupHzQeUZtS4dUb5dj1XeZkm-c8wmmc3coAjgUAcJV8P5y5CfHihDUGd4ITB6wtVpDzZ2KgX8GCceVnF19wcLE3T0Jbu9wDZzhiA.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">Google将推出Quick Share SDK Android与iOS应用明年起可绕过系统分享菜单</div>
+  <div class="link_preview_description" dir="auto">Google日前在AndroidDevSummit开发者峰会上宣布，将于2027年上半年推出全新的QuickShareSDK，同时还将发布面向iPhone应用的QuickShareiOSSDK。这意味着未来无论是Android应用还是iOS应用，都可以直接集成QuickShare功能，让用户在应用内部完成文件分享，而无需再经过系统级分享菜单或全屏QuickShare界面。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">3</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3350"><time datetime="2026-11-04T06:08:24+00:00" class="time">06:08</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3351" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1MSwidCI6MTc5Mzc4MDI0NywiaCI6IjcyMDNkZmZiNmI2NDkyNjQ1MCJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584950.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>币安公布63.4亿美元盗窃案初步调查：工程师被虚假招聘欺骗 在自己PC上执行恶意仓库</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584950.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/hj124ZFf1F6mrIxZOrPDvTKJD5xZT6HwVABg6WvQrkla8OpCLaFsNHV7tKQmxJSTluKKZcHIjLLDw8_JC8zFA8q153GhZYqyTaelBGdrh4hKEusj3F47f-OUuosRX6ofr_TRqPixIBw0wJbmY7-volhGBQzJTryWZ8ntMjC_b5VT52mp2QIylDAW421In0pY0w4GzeWJxz_rMzQs_23nI0W03nHfgDt02b-5b7TKEaLbgm-wjfsxfLepMDfz-aYhXFDn1rEaf5LU3wjoY0EaY8ADRhCzyAvwSVBFClangDhDcJuSSjMFjt0WyHTXfkTj7Viu9Y0iZESAwpv7V_REhA.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">币安公布63.4亿美元盗窃案初步调查：工程师被虚假招聘欺骗 在自己PC上执行恶意仓库</div>
+  <div class="link_preview_description" dir="auto">加密货币交易所币安日前公布10月29日安全事件的初步调查结果。币安称攻击者经过数月准备，先利用恶意软件、虚假招聘和币安内部AI工具接触钱包团队，最终获得钱包签名服务的未经授权访问权限，转移约63.4亿美元的数字资产。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">3</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3351"><time datetime="2026-11-04T06:22:18+00:00" class="time">06:22</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3352" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1MiwidCI6MTc5Mzc4MDI0NywiaCI6ImNmOTQyMmZiODIzNDcyMzNjZiJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584956.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>苹果警告称AI智能体以“意外或不可预测”方式行事会带来风险</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584956.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/SIg214JKxWHsNm9JkbPLtboRZtoYmjXhLcn7SZAQ6o0EH-wJBhaQXrl2VbVIZAB7iyyjSYOByzVgW19aotwprSej2DKCyp8LiYVA-Pry24OUn46bul4VzT0cPCekdb-8BaXqnzNfdk1WWF9ropjuUjn-IpYTVgYAzicsslmb2sXOnbIMRVEs4_iwtpDOgHHAsQdCH2kMd0tapx6ZOEwWY99x_DG84fuzkX4yp46ylZB2U1Ciq7Ye9Y5GY6z1Jl0SEPYlRLXNvcNdLMpLxzJqCL5M-FudM2gRkIW04sQ2-_nuQmsrhZtgHxkjYdpgk63YwubF2PLctH3zqWVcXQ-Zhg.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">苹果警告称AI智能体以“意外或不可预测”方式行事会带来风险</div>
+  <div class="link_preview_description" dir="auto">苹果周二在年度财务申报文件中表示，能够以“意外或不可预测的方式”行事的AI智能体可能使公司面临诉讼或损害其声誉，从而对其业务构成威胁。苹果申报文件中的新风险因素显示了AI智能体的颠覆性潜力，这类智能体已迅速成为硅谷最重要公司高度关注的事项。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">3</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3352"><time datetime="2026-11-04T06:46:35+00:00" class="time">06:46</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3353" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1MywidCI6MTc5Mzc4MDI0NywiaCI6IjJiOGNjYzEwZjkyNWNlYWYzYSJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584958.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>苹果天气闹乌龙：多地现零下30℃，官方致歉</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584958.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/KiiMn2D_BgBeRowUVpooHv-KkAYwwRapq15XCOIQE4qF0f029mMwkvWBvXoNHjc8_a96t6fE78jfSEFCI19AsaTTVCQrf3TpXfBOWV5dnsCTHjJXZ7nGwPxBaCg8SSv16yQM8mr8ZTK0S-N6qkXHhX2zMsh-_W2bYuB2ESAB_k1o8QiE6zxpzgWguFhFxI_GeJ5m5TfdF9wxAbyLDmFcmOlr8TXgWCLHvBa-GVQhUiKzc9Szkbiv9a76L2OPbr6XdRN7PZN5QVmLj1sw55vRtDzAdVzYRdGTj9cLAF7z6eFsyKsv7t4v7EBhq8XeC0D_Wcq7W3WuU53OnfLqxW3a3Q.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">苹果天气闹乌龙：多地现零下30℃，官方致歉</div>
+  <div class="link_preview_description" dir="auto">11月4日，苹果手机自带天气App今日凌晨出现异常，北京、上海、厦门等多地11月13日的最低气温被错误显示为零下30℃左右，部分地区甚至显示低至零下32℃，引发大量网友关注和吐槽。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">2</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3353"><time datetime="2026-11-04T06:54:52+00:00" class="time">06:54</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3354" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1NCwidCI6MTc5Mzc4MDI0NywiaCI6ImVjYTEwZmQyOGMwNjQ1MDlhZCJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584960.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>Claude Code修改游戏开发限制：提及现有游戏不再被拒 仍禁止直接复刻</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584960.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/vtpMUfKo2wh5b0zSrsuK0RJyqXKu5ZD8GMAsPQEnq77WdZgHbtj25iy2hNO-Kn0Q09tEtGhGi53_qWQkm3JWjtp9cOgWvhHUFwITSM5OfDQOwKcQZQFkFN-NQFtOwrmw1yQ6YwoJBKkzXaSz73CPGtqM_qwDEgDSKTgM3W3ptR6yo1zwgAc8s2QmnUoNFoQZY5OuW-LqRXuVtPEX_a1FTgCDLx_xEKSID5246awpQSCLZar4VQvSUHgB5_VaADXODdNR_7FTWum85okvj3sb7VelLX3RxtRYoX-BZSfJDHRaR91pYErkRA8mVNLCdJaGOWyBH4wChY66xMyPB_-Sbg.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">Claude Code修改游戏开发限制：提及现有游戏不再被拒 仍禁止直接复刻</div>
+  <div class="link_preview_description" dir="auto">Anthropic工程师AddyOsmani在社交平台X发文宣布，已在ClaudeCode2.1.317版本中调整ClaudeOpus5.5的游戏开发限制，允许用户引用现有游戏描述玩法和机制，不再因此直接拒绝生成游戏。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">2</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3354"><time datetime="2026-11-04T06:57:12+00:00" class="time">06:57</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3355" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1NSwidCI6MTc5Mzc4MDI0NywiaCI6Ijc0MTQ2MWY5NjVkNjM4YjA0OCJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584962.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>连续2小时40分钟纯代码生成66秒动画 Anthropic新旗舰Fable 5.5实测曝光</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584962.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/SXrC46fGRwhtSIBF1Ts2Yd9u_K5ZqIrvnfh5YfJDUIdqLq1CnFvf3J2KP3f5M9DMXcSVEv7sNHBZAgh0Oyo7HFtRvmMCJE_nX5JYLrKtqmQzUpS_g0w71eLapo6OQkQbLmkexw6_Vd90zP6H-5qJcjFGk8Ju9qDXgYah5w7fquyhEfSTdUL6GMC59QdIK-_3nrZs-3T8lIj5aUtE6C9d_rChtIlr3RFFdvRKD9mBz5kueUzWz4XI3k3g26y_ZzpKAh0uKEFNzipwI9v1n6FOsSYDlC1p6BRn7iaIEBIAUuNFoGDmZ1bBvTXVWibJS82n0BPC-xImNyoQmLgT9rcG7g.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">连续2小时40分钟纯代码生成66秒动画 Anthropic新旗舰Fable 5.5实测曝光</div>
+  <div class="link_preview_description" dir="auto">Anthropic尚未正式发布的下一代旗舰模型ClaudeFable5.5近日在海外开发者社区引发关注。多名开发者在社交平台X上分享了据称来自该模型的早期测试结果。其中，一段完全通过编程生成的66秒动画短片尤为引人注目。测试者称，模型在没有调用图像或视频生成工具的情况下，连续自主编写和运行代码约2小时40分钟，完成了动画画面、配乐及音效制作。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">2</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3355"><time datetime="2026-11-04T06:58:29+00:00" class="time">06:58</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3356" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1NiwidCI6MTc5Mzc4MDI0NywiaCI6IjI5NDhkNTNkY2UxNTA3Y2M2NyJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584964.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>OpenAI新模型GPT 6.2 Astra曝光 工程跑分大涨47%</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584964.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/aRkMFsXAY6AdXGHLOw7K14VYi9xa_16zswZlUf3iZdoXU-q0AX_94A-BWjTEapgZbRgSyBFAwJ_vr2f90GFg5pEuSkPF_R0nf5uCJJ7Q9ietilvCbh2KN7twjb_1OageH9TDS-V_o8eUrnfTlyExTuKUFJanyxdtLcLIRGtADPuz4KkkVLxtOxAryyqQo1eMjbv4lYEC7zUleW8Ly9LJ-uIN9skliFl1yxaaFOoQw6ZZP5_JxGSebDfZI6N--RJuF9jsXb1R0NthIZyBtkD6dUNtyk6u_PEpdzk-fGVhakQSsXR-POhjGQvy3q-u-0nLmSO6NXl9Q3ztCTJog4oaAg.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">OpenAI新模型GPT 6.2 Astra曝光 工程跑分大涨47%</div>
+  <div class="link_preview_description" dir="auto">OpenAI下一代旗舰模型GPT6.2Astra疑似已进入小范围灰度测试。近日，多名海外开发者在Codex使用量统计中发现名为“gpt-6.2-astra”的新模型标识，部分账户的调用占比达到19.8%。与此同时，OpenAI官方公布了一款尚未发布的内部模型在三维工程设计基准测试中的成绩，较现款GPT6Astra提升约47.3%，引发外界对新一代模型即将发布的猜测。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">2</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3356"><time datetime="2026-11-04T06:59:29+00:00" class="time">06:59</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3357" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1NywidCI6MTc5Mzc4MDI0NywiaCI6IjViZWQ3OWRjOThkYjA5MDBkYiJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584966.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>陶哲轩警告：人类把思考交给AI 危险可能很快到来</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584966.htm">
+  
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">陶哲轩警告：人类把思考交给AI 危险可能很快到来</div>
+  <div class="link_preview_description" dir="auto">菲尔兹奖得主、著名数学家陶哲轩（TerenceTao）近日对人类日益依赖人工智能发出警告。他担心，随着人们逐渐将思考和解决问题的过程交给AI，人类正在失去对问题本身及其解决方案的理解，而这一趋势可能很快在现实世界中产生严重后果。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">2</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3357"><time datetime="2026-11-04T07:02:49+00:00" class="time">07:02</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3358" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1OCwidCI6MTc5Mzc4MDI0NywiaCI6IjU1MWMzMzg1Y2JhMjMzODBhZSJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584968.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>拆自家电视被封号 11天后OpenAI低头道歉 Anthropic不听</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584968.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/ccUqGl_xcxavfeHhIH0iXGKtFobLgMvwQsAE98sSxP1jQUStv9ABFuwU_i7Rpr_FJ1gFL0lyNp0eMUBFCkxayee5D3CvLAG6o2NOKqGhD5nafVdB2bp5zDgGPd7rSXSfwQEzqecSVjKLMHoa23OalxYaWQYBg5GRmiqDURUIJfZO6wUITRJID7hTgGIeBiuwd4SvfjHplKUp4J4qifNm_0hS7JoEZGQX22c7WTtcnJzhLXPGX0JPAT6CFO1D4fL9YzpqqK8wss0HBgxky5j0HVOOnhnNqpvXNQHQHpiNFfSWlzpqLF2yo0MjrYXpxKVVL5OiHvMj8XLv8F5MuxZGkA.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">拆自家电视被封号 11天后OpenAI低头道歉 Anthropic不听</div>
+  <div class="link_preview_description" dir="auto">你花钱买了一台最新款的智能电视，为了保护隐私，你决定研究一下里面的代码。为了提高效率，你打开了ChatGPT辅助分析。结果第二天，你的OpenAI账号被原地封禁，里面充值的500美元余额瞬间灰飞烟灭。理由是：你涉嫌“网络滥用”。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">2</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3358"><time datetime="2026-11-04T07:05:07+00:00" class="time">07:05</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3359" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM1OSwidCI6MTc5Mzc4MDI0NywiaCI6ImJmZTVlZjBkY2NiYjA4ZDE3MCJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584972.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>Anthropic工程师警告：AI越强，人类越容易陷入“认知投降”</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584972.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/aJjJxPnV-Ih1CV9LpqnWKF7NfWwgzg3Z9I-JLE79SDyqRsMitNNxNfJ12_KMOiwovSMCJdHFq3TUTIXGiTjq0bsd9_HWBT9k9a08EkwEw9TNTOir10v5FMIXe2vrq1UKetVyxRM__v8QoSiZD0Kqtr1IVNZWFbZhI1kv-YetNo4PYm0V0KPsAndZqRosXswqw3a7EgFzUnfe176vEd6tYW4R7yRul2oDwQOQxKnDLnjlekbUYvZ29G8oyUcBDG0ptjs7gNb20Y-7T06nVzT1e2Ynv1G8UxZ2jXBmAp47bEd28zxRRb1xDgP1RIQYFONyav8IysIo0CU55fnzkFdk9w.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">Anthropic工程师警告：AI越强，人类越容易陷入“认知投降”</div>
+  <div class="link_preview_description" dir="auto">11月4日，Anthropic旗下ClaudeCode团队工程师、前Google技术高管AddyOsmani近日在社交平台X发表长文《当AI智能体完成工作时，如何保持批判性思维》（Criticalthinkingwhenagentsdothework），警告随着AI智能体（AIAgent）越来越强大，人类可能在享受效率提升的同时，逐渐丧失独立思考、验证结果和理解复杂系统的能力。他将这种现象称为“认</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">2</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3359"><time datetime="2026-11-04T07:07:43+00:00" class="time">07:07</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3360" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM2MCwidCI6MTc5Mzc4MDI0NywiaCI6ImM3MDBmYzYzNGFjMWVhNzU1MCJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584974.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>三星贴脸开大：把“裂纹折叠屏”装上广告车 满街嘲讽iPhone Duo</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584974.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/XUJOEHAscDbTeloyrm6AMq6PK3QQEXaPHuu_fdcf_p2ZfTpN8bJkOXPmLqecIF_hgd-JaGPqAJjFKldaH37dvi5OteNApGvwP8X91FUzIBbYaIvMYlRwefOZi1ZvGorJJp2YHtUT7YK534xhCNrL75XsgZjK44MXQTohSCz1pX8rkRMMUDOMKavU9j-gcXyOVKQ2Xn8Gn7u_N0fPrs1QUBGqjJXGRVdU_zxtuiXJ3cRzoqEa1bhpYGjszF-8y9xIEqm_bKbhHG0mvhN3F-ZCDBeB6KAZ5hR2_ziGlJtBn424TckeXdUwTjdfpTYcR7U0Pxz6VvgCQEROkDYztIVMrA.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">三星贴脸开大：把“裂纹折叠屏”装上广告车 满街嘲讽iPhone Duo</div>
+  <div class="link_preview_description" dir="auto">据外媒MobileSyrup报道，三星近日在加拿大、多伦多和温哥华投放移动LED广告卡车，车身展示一块出现裂纹的折叠屏，并打出“换用GalaxyZFold8”的口号，被外界视为暗讽苹果iPhoneDuo的屏幕问题。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">2</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3360"><time datetime="2026-11-04T07:09:22+00:00" class="time">07:09</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3361" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM2MSwidCI6MTc5Mzc4MDI0NywiaCI6ImQ0ZTI0ZWJlNWVjM2E5MThiNSJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584976.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>窃听门本可避免？消息称OpenAI员工已警告安全漏洞多年</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584976.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/uQqvXJpCrMKefuGH1x5Tdg2LE_t3yV_y8klvOcv2UgNpkPZVispZP-2PRW8X_PEnK7IJBPEuRnMm-2ZpkPG3p5pvt0rNBF4BuZfd6TUzStCEDIhokaOPfSXebGIJ0x2m8xuqhG0kyjT1nLqRK1RBuTbwCCOw7itxLvLFYgz0AOQ2jb5q2qwBxvDGt3hmaecrP-RhHU8KTQ0kxSuiDfYA8zpK8jWumsgJuS7w5hZiyRogClWwNiiYvak0bKbnfPOfewAo1OZv54zR5N4ZT2ihZ8Q9oZ46rVk7CnpD2daiUctP1Z_NRWMXPb-nS2CQhms2lvpO4oO_Hb22xqaQarqv0g.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">窃听门本可避免？消息称OpenAI员工已警告安全漏洞多年</div>
+  <div class="link_preview_description" dir="auto">11月4日，据路透社报道，OpenAI在今年10月披露，公司在一间高管会议室内发现了一个被人偷偷安放的录音设备。对此，许多OpenAI前员工的反应如出一辙：他们并不感到意外。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">3</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3361"><time datetime="2026-11-04T07:10:42+00:00" class="time">07:10</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div><div class="tgme_widget_message_wrap js-widget_message_wrap"><div class="tgme_widget_message text_not_supported_wrap js-widget_message" data-post="cnbeta_com_tech/3362" data-view="eyJjIjotNDM3NTIxMTk2NCwicCI6MzM2MiwidCI6MTc5Mzc4MDI0NywiaCI6IjRjYTEzMTFiYjJiZTA4Nzk3MCJ9">
+  <div class="tgme_widget_message_user"><a href="https://t.me/cnbeta_com_tech"><i class="tgme_widget_message_user_photo bgcolor4" data-content="c"><img src="https://cdn5.telesco.pe/file/JIHkSHO9-qB0B1FI6G77AwYHK12YBamyrGSAcpDZJPA9Nn4j1DMZmcLBJtlvBhOXZwg2vWLVmjUIVptDZ9RrOifX0PqWzpGekEXgBHiWcILk-0U1fP_826o4dE_1wfPxS2jzh7A4rB4pu8CvZupekTwBPUYW0HK-nWd9-4RiHQ1U9nSkJH8gQTQbFwf9VjZTPRD1pikEakw5Zou4JdbNZ854BcDDCNCY62MGhrA1WV4Q5IiKDkOhDRP40U2iK1BAnt4c_3Nf5qEiHgo9woEpXuPiuw-Uenb3UpRkWZds9pcVX8h3vwYrgsky3f3Fqs2e5pRI-Ymu1qlF3rSnF9VtTg.jpg"></i></a></div>
+  <div class="tgme_widget_message_bubble">
+    
+        <i class="tgme_widget_message_bubble_tail">
+      <svg class="bubble_icon" width="9px" height="20px" viewBox="0 0 9 20">
+        <g fill="none">
+          <path class="background" fill="#ffffff" d="M8,1 L9,1 L9,20 L8,20 L8,18 C7.807,15.161 7.124,12.233 5.950,9.218 C5.046,6.893 3.504,4.733 1.325,2.738 L1.325,2.738 C0.917,2.365 0.89,1.732 1.263,1.325 C1.452,1.118 1.72,1 2,1 L8,1 Z"></path>
+          <path class="border_1x" fill="#d7e3ec" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0 L9,0 L9,20 L7,20 L7,20 L7.002,18.068 C6.816,15.333 6.156,12.504 5.018,9.58 C4.172,7.406 2.72,5.371 0.649,3.475 C-0.165,2.729 -0.221,1.464 0.525,0.649 C0.904,0.236 1.439,0 2,0 Z"></path>
+          <path class="border_2x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.5 L9,0.5 L9,20 L7.5,20 L7.5,20 L7.501,18.034 C7.312,15.247 6.64,12.369 5.484,9.399 C4.609,7.15 3.112,5.052 0.987,3.106 C0.376,2.547 0.334,1.598 0.894,0.987 C1.178,0.677 1.579,0.5 2,0.5 Z"></path>
+          <path class="border_3x" d="M9,1 L2,1 C1.72,1 1.452,1.118 1.263,1.325 C0.89,1.732 0.917,2.365 1.325,2.738 C3.504,4.733 5.046,6.893 5.95,9.218 C7.124,12.233 7.807,15.161 8,18 L8,20 L9,20 L9,1 Z M2,0.667 L9,0.667 L9,20 L7.667,20 L7.667,20 L7.668,18.023 C7.477,15.218 6.802,12.324 5.64,9.338 C4.755,7.064 3.243,4.946 1.1,2.983 C0.557,2.486 0.52,1.643 1.017,1.1 C1.269,0.824 1.626,0.667 2,0.667 Z"></path>
+        </g>
+      </svg>
+    </i>
+    <div class="tgme_widget_message_author accent_color"><a class="tgme_widget_message_owner_name" href="https://t.me/cnbeta_com_tech"><span dir="auto">cnBeta - 软硬件与技术 (Technology &amp; Products)</span></a></div>
+
+
+<div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://www.cnbeta.com.tw/articles/soft/1584982.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>RTX Spark实机展示：已适配97款PC游戏 反作弊仍需跟进</b></a><br/><br/><a href="https://t.me/cnbeta_com" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[精选新闻]</u></a> · <a href="https://t.me/cnbeta_com_tech" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[软硬件技术]</u></a> · <a href="https://t.me/cnbeta_com_media" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[互动娱乐]</u></a> · <a href="https://t.me/cnbeta_com_business" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[商业产业]</u></a> · <a href="https://t.me/cnbeta_com_buzz" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><u>[趣闻八卦]</u></a></div><a class="tgme_widget_message_link_preview" href="https://cnbeta.com.tw/articles/soft/1584982.htm">
+  <i class="link_preview_right_image" style="background-image:url('https://cdn4.telesco.pe/file/va_Ro52fopTluQahUz-A3LjpXy5rHVQPS8hTlxMQ1NMPYGYdifkoJqbaP2whana-jaQudcAKHaWGCKHiniKhHQAqynt2DSQZ26pUDOAtThVB5yqryvMEcm5g_WyXkPUtmuAzX607wZgwQhMU-fK83PpKPJ3VJP5kV_ibR-h3EJOMaQhR6hQnXAB_V_eQSdscz06Z7iUVK9FUO8PkA6lOUUg1PxY-bTOrU3UNqYDnRu7KRRHK_kl21uIXc0wEaRw0gxd9sptvdZiwd52p7BoM5JKaPvBLep6hbvpoiPl96UTjYMvdIjzh9AMEyz-vyDviDct-p0sQIOUjLFBdq_AcGw.jpg')"></i>
+  <div class="link_preview_site_name accent_color" dir="auto">cnBeta.COM</div>
+  
+  <div class="link_preview_title" dir="auto">RTX Spark实机展示：已适配97款PC游戏 反作弊仍需跟进</div>
+  <div class="link_preview_description" dir="auto">英伟达于11月2日展示了RTXSpark的实机运行情况。目前已有97款热门PC游戏能够以Arm原生版本或通过Prism良好运行，产品发售时的支持范围将达到数百款，但部分竞技游戏仍受反作弊适配限制。</div>
+</a>
+<div class="tgme_widget_message_footer compact js-message_footer">
+  
+  <div class="tgme_widget_message_info short js-message_info">
+    <span class="tgme_widget_message_views">3</span><span class="copyonly"> views</span><span class="tgme_widget_message_meta"><a class="tgme_widget_message_date" href="https://t.me/cnbeta_com_tech/3362"><time datetime="2026-11-04T07:13:32+00:00" class="time">07:13</time></a></span>
+  </div>
+</div>
+  </div>
+  
+</div></div>
+    </section>
+  </div>
+</main>
+    <script src="//telegram.org/js/jquery.min.js"></script>
+    <script src="//telegram.org/js/jquery-ui.min.js"></script>
+    <script src="//telegram.org/js/tgwallpaper.min.js?3"></script>
+<script src="//telegram.org/js/tgsticker.js?32"></script>
+
+    <script src="//telegram.org/js/widget-frame.js?68"></script>
+    <script src="//telegram.org/js/telegram-web.js?14"></script>
+    <script>TWeb.init();
+</script>
+    
+  </body>
+</html>
+<!-- page generated in 83.87ms -->

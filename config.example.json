@@ -1,0 +1,11 @@
+{
+  "bot_token": "在 BotFather 那里拿到的 token",
+  "chat_id": "你的 Telegram 数字 ID（zzzdm 那套用的是 123132586）",
+  "proxy": "http://127.0.0.1:7890",
+  "pages": 1,
+  "max_push_per_run": 25,
+  "max_age_hours": 24,
+  "with_photo": true,
+  "silent": true,
+  "dry_run": false
+}

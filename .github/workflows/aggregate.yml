@@ -1,0 +1,52 @@
+name: cnbeta-dedupe
+
+on:
+  schedule:
+    # GitHub Actions 最小间隔即 5 分钟；实际触发常有 1~10 分钟延迟，属正常
+    - cron: '*/5 * * * *'
+  workflow_dispatch: {}      # 支持手动触发，便于首次验证
+
+# 同一时间只跑一个，避免并发导致重复推送 / state 冲突
+concurrency:
+  group: cnbeta-dedupe
+  cancel-in-progress: false
+
+# 需要写权限才能把去重状态提交回仓库
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 零第三方依赖，无需 pip install
+      - name: Aggregate & push
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          # 云端直连 Telegram，无需代理
+          TG_PROXY: ''
+        run: python src/service.py
+
+      # 即使用例中途失败，也要把已发送的记账落盘，否则下轮会重发
+      - name: Persist state
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f output/state.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "状态无变化"
+            exit 0
+          fi
+          git commit -m "chore: update dedupe state [skip ci]"
+          # 极端情况下远程有新提交（手动改动），rebase 后再推
+          git pull --rebase --autostash origin main || true
+          git push
