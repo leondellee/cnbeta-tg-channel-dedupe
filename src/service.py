@@ -244,6 +244,7 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
               + (f"，本轮上限 {cap} 篇" if len(fresh) > cap else ""))
 
     sent = 0
+    attempted = 0
     if dry:
         if fresh:
             from notifier import build_card
@@ -255,6 +256,7 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
     else:
         for g in fresh[:cap]:
             labels = [LABEL.get(c, c) for c in g.channels]
+            attempted += 1
             ok = send_card(token, chat_id, g.primary, labels, proxy=proxy,
                            with_photo=with_photo, silent=silent)
             if ok:
@@ -270,6 +272,13 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
 
     save_state(dd.to_dict())
     stats = dd.stats()
+
+    # 全部发送失败 = 配置/权限问题（被拉黑、chat_id 写错），必须让 Actions 变红，
+    # 否则任务一直绿着，人以为在正常推送。状态已先落盘，不会导致重发。
+    if not dry and attempted and sent == 0:
+        raise RuntimeError(
+            f"{attempted} 条全部发送失败，检查 bot 是否被 block、chat_id 是否正确")
+
     return {"mode": "run", "fetched": len(posts), "groups": len(groups),
             "fresh": len(fresh), "pushed": sent, "skipped": skipped,
             "failed_channels": failed, "state": stats}
