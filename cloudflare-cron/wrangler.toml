@@ -1,0 +1,9 @@
+name = "cnbeta-dedupe-cron"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+# 每 5 分钟触发一次 GitHub Actions。
+# Workers 的 cron 是准的（通常秒级），不像 GitHub 自己的 schedule 会被节流到几小时一次。
+# 免费额度：10 万请求/天，一趟只发 1~2 个 HTTP 请求，一天 288 次，远没到线。
+[triggers]
+crons = ["*/5 * * * *"]

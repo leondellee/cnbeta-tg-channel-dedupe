@@ -1,11 +1,10 @@
 # cnBeta 五频道去重聚合
 
 把 5 个 cnBeta 推送频道的重复内容合并成一条，按原文地址去重后推到你 Telegram 私聊。
-**部署后不在你电脑上跑，不消耗任何 token，每天三场（09:20 / 13:20 / 19:20）自动汇总。**
+**部署后不在你电脑上跑，不消耗任何 token，每 5 分钟自动汇总一次。**
 
-> 为什么不是每 5 分钟：GitHub Actions 的 schedule 对免费账号有强节流，写 `*/5`
-> 实际也只会一天跑 5 次左右（实测见下方「触发频率」）。与其被动随机、可能凌晨推送，
-> 不如显式定成三场。
+> 定时不靠 GitHub 自带的 schedule（它会把 `*/5` 节流成几小时一次），
+> 而是用 Cloudflare Worker 的 cron 去戳 `workflow_dispatch`，详见「触发频率」。
 
 ---
 
@@ -69,7 +68,7 @@ cnbeta_com_buzz   ┘
 
 ---
 
-## 触发频率：GitHub 会节流，别信 `*/5`
+## 触发频率：GitHub 会节流，所以用 Worker 当定时器
 
 Actions 的 `schedule` 只是「请求」而不是「定时器」。同账号下 zzzdm 仓库（同样写 `*/5`）
 最近 60 次定时运行的真实间隔：
@@ -80,15 +79,29 @@ Actions 的 `schedule` 只是「请求」而不是「定时器」。同账号下
 | 最短 / 最长 | 1.9 小时 / 10.3 小时 |
 | 换算 | 约 **5 次/天**，而非理论上的 288 次 |
 
-所以本项目改成一天三场：`20 1,5,11 * * *`（UTC）＝ 北京时间 **09:20 / 13:20 / 19:20**。
-即便如此，GitHub 仍可能延迟 0～2 小时才真正触发，批次抬头里的「上午场 / 下午场 / 晚上场」
-是按实际运行时刻算的，别拿它当准点保证。
+**解决办法**：`cloudflare-cron/` 里放一个小 Worker，用 Cloudflare 的 cron
+每 5 分钟调一次 `workflow_dispatch`。Cloudflare 的 cron 是准的（秒级），
+Python 逻辑一行不用改，仍然跑在 Actions 上——Worker 只负责「戳一下」。
 
-要真正的 5 分钟级只有换执行环境——Cloudflare Workers 的 cron 免费且准时，
-但需要另写一份 JS 并注册账号；GitHub Actions 做不到。
+Actions 里的 `schedule` 保留每天三场作为兜底：Worker 万一挂了，还能收到三次。
 
-> 三场制带来的副作用是单批条数变多（一天约 80 篇 ÷ 3 ≈ 27 条/批），
-> 因此 `max_push_per_run` 提到 60、`max_age_hours` 提到 36，避免内容被截断或过期丢弃。
+> 单批条数回到 1～3 条（5 分钟一次），批次抬头自然不会出现（阈值 6 条）。
+> `max_push_per_run: 60`、`max_age_hours: 36` 保持不变，只在长时间停机后才有意义。
+
+### 部署 Worker
+
+```bash
+cd cloudflare-cron
+npx wrangler login                 # 浏览器授权，只需一次
+npx wrangler deploy                # 部署，cron 随之生效
+npx wrangler secret put GH_TOKEN   # 粘贴细粒度 PAT
+```
+
+`GH_TOKEN` 是 fine-grained PAT，只需对 `cnbeta-tg-channel-dedupe` 一个仓库的
+**Actions: Read and write** 权限；有效期建议 90 天，到期前换一次。
+
+也可以在 Cloudflare Dashboard 里手动建：Workers & Pages → Create Worker →
+粘贴 `worker.js` → Settings 里加 Cron `*/5 * * * *` 和 Secret `GH_TOKEN`。
 
 ---
 
@@ -221,6 +234,9 @@ cnbeta-dedupe/
 │   ├── test_flow.py        12 项回归（主流程，离线）
 │   └── fixtures/*.html     5 个真实频道页快照
 ├── .github/workflows/aggregate.yml
+├── cloudflare-cron/
+│   ├── worker.js    每 5 分钟戳一次 workflow_dispatch
+│   └── wrangler.toml
 ├── config.json      本地配置（含 token，已 gitignore）
 └── output/state.json  去重状态（由工作流回写）
 ```
