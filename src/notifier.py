@@ -1,37 +1,33 @@
 # -*- coding: utf-8 -*-
 """卡片渲染 + Telegram 推送（纯标准库，零第三方依赖）。
 
-卡片形态（Leon 2026-11-04 定稿：完整卡片）：
+卡片形态（Leon 2026-11-04 改版：对齐原频道）——正文只有两段：
 
-    <b>窃听门本可避免？消息称OpenAI员工已警告安全漏洞多年</b>
-
-    11月4日，据路透社报道，OpenAI 在今年 10 月披露……
+    **窃听门本可避免？消息称OpenAI员工已警告安全漏洞多年**   ← 粗体，本身就是原文链接
 
     分类：精选 · 技术
-    原文：cnbeta.com.tw
 
-配图取自 t.me 预览页的 telesco CDN（实测 800x450，够清晰），
-用 sendPhoto 上传、caption 放卡片正文；取图失败自动降级为 sendMessage 纯文本，
-不阻塞推送。
+下面的配图、标题、描述全部由 Telegram 的**链接预览**自动生成（读原文页的
+og:image / og:description），和原频道看到的版式一致。因此这里不用 sendPhoto，
+而是 sendMessage + link_preview_options；摘要不再写进正文，避免和预览重复。
+
+原文页实测（2026-11）：og:title / og:description / og:image / og:site_name 齐全，
+注意 /articles/soft/xxx.htm 会 301 到 /articles/tech/xxx.htm（换栏目），
+Telegram 抓取时会自动跟随。
 """
 
 from __future__ import annotations
 
 import html as html_mod
 import json
-import mimetypes
 import re
 import time
 import urllib.error
 import urllib.request
-import uuid
-from urllib.parse import urlsplit
 
 API = "https://api.telegram.org/bot{token}/{method}"
 
-MAX_CAPTION = 1024          # sendPhoto caption 上限
 MAX_TEXT = 4096             # sendMessage 上限
-MIN_SUMMARY = 90            # 摘要至少保留的字数
 
 
 # ---------------------------------------------------------------------------
@@ -53,42 +49,37 @@ def _shorten(text: str, limit: int) -> str:
     return cut.rstrip("，,、 ") + "…"
 
 
-def build_card(post, channels: list[str] | None = None,
-               summary_budget: int | None = None) -> str:
-    """把一条帖子渲染成 HTML 卡片（parse_mode=HTML）。"""
+def build_card(post, channels: list[str] | None = None) -> str:
+    """渲染卡片正文（parse_mode=HTML），刻意对齐原频道的版式。
+
+    原频道的样子：粗体标题（本身就是原文链接）+ 一排分类标签，下面是 Telegram
+    自己抓出来的链接预览（图 + 标题 + 描述）。所以这里：
+
+    - 标题做成 <a> 包 <b>，点标题就能跳原文；
+    - 分类只留纯文本，不做成链接（Leon 2026-11-04 明确不需要）；
+    - **不把摘要写进正文**——链接预览里的 og:description 就是这段摘要，
+      再写一遍等于重复。只有拿不到原文地址时才退回「标题 + 摘要 + 来源」。
+    """
     title = html_mod.escape(re.sub(r"\s+", " ", post.title or "").strip())
-    summary = html_mod.escape((post.summary or "").strip())
     url = (post.article_url or "").strip()
 
-    tags_line = ""
-    if channels:
-        tags_line = "分类：" + " · ".join(channels)
-
-    host = urlsplit(url).netloc if url else ""
-    host = host[4:] if host.startswith("www.") else host
-    link_line = ""
     if url:
-        link_line = f'原文：<a href="{html_mod.escape(url, quote=True)}">' \
-                    f"{html_mod.escape(host)}</a>"
+        head = f'<b><a href="{html_mod.escape(url, quote=True)}">{title}</a></b>'
+    else:
+        head = f"<b>{title}</b>"
 
-    if summary_budget is None:
-        # 预留标题/分类/链接/换行的开销，剩余给摘要
-        overhead = len(title) + len(tags_line) + len(link_line) + 60
-        summary_budget = max(MIN_SUMMARY, MAX_CAPTION - overhead - 20)
+    parts = [head]
+    if channels:
+        parts.append("分类：" + " · ".join(channels))
 
-    body = _shorten(summary, summary_budget)
-    parts = [f"<b>{title}</b>"]
-    if body:
-        parts.append(body)
-    tail = "\n".join(x for x in (tags_line, link_line) if x)
-    if tail:
-        parts.append(tail)
+    if not url:                      # 没有原文链接时，预览无从生成，才带摘要
+        body = _shorten(html_mod.escape((post.summary or "").strip()), 800)
+        if body:
+            parts.append(body)
+        if getattr(post, "link", ""):
+            parts.append(f'来源：<a href="{html_mod.escape(post.link, quote=True)}">'
+                         f"{html_mod.escape(post.link)}</a>")
     return "\n\n".join(parts)
-
-
-def build_message(post, channels: list[str] | None = None) -> str:
-    """纯文本兜底（无图时用；上限更宽，摘要可以给足）。"""
-    return build_card(post, channels, summary_budget=MAX_TEXT - 400)
 
 
 # ---------------------------------------------------------------------------
@@ -101,39 +92,6 @@ def _opener(proxy: str | None):
                                     else {"http": proxy, "https": proxy}))
 
 
-def download_photo(url: str, proxy: str | None, timeout: int = 30) -> bytes | None:
-    """下载配图。失败返回 None，由调用方降级为纯文本。"""
-    if not url:
-        return None
-    try:
-        req = urllib.request.Request(
-            url, headers={"User-Agent": "Mozilla/5.0", "Referer": "https://t.me/"})
-        resp = _opener(proxy).open(req, timeout=timeout)
-        data = resp.read()
-        return data if data and len(data) > 1024 else None
-    except Exception as e:
-        print(f"    图片下载失败 {type(e).__name__}: {str(e)[:110]}")
-        return None
-
-
-def _multipart(fields: dict, files: dict) -> tuple[bytes, str]:
-    boundary = "----cb" + uuid.uuid4().hex
-    buf = bytearray()
-    for k, v in fields.items():
-        buf += f"--{boundary}\r\n".encode()
-        buf += f'Content-Disposition: form-data; name="{k}"\r\n\r\n'.encode()
-        buf += str(v).encode("utf-8") + b"\r\n"
-    for k, (fname, content) in files.items():
-        ctype = mimetypes.guess_type(fname)[0] or "image/jpeg"
-        buf += f"--{boundary}\r\n".encode()
-        buf += (f'Content-Disposition: form-data; name="{k}"; '
-                f'filename="{fname}"\r\n').encode()
-        buf += f"Content-Type: {ctype}\r\n\r\n".encode()
-        buf += content + b"\r\n"
-    buf += f"--{boundary}--\r\n".encode()
-    return bytes(buf), f"multipart/form-data; boundary={boundary}"
-
-
 def _api_call(token: str, method: str, payload: dict,
               proxy: str | None) -> tuple[bool, str]:
     data = json.dumps(payload).encode("utf-8")
@@ -144,23 +102,6 @@ def _api_call(token: str, method: str, payload: dict,
         resp = _opener(proxy).open(req, timeout=30)
         body = json.loads(resp.read().decode("utf-8"))
         return bool(body.get("ok")), body.get("description", "")
-    except urllib.error.HTTPError as e:
-        detail = e.read().decode("utf-8", "ignore")[:200]
-        return False, f"HTTP {e.code}: {detail}"
-    except Exception as e:
-        return False, f"{type(e).__name__}: {str(e)[:140]}"
-
-
-def _api_upload(token: str, method: str, fields: dict, files: dict,
-                proxy: str | None) -> tuple[bool, str]:
-    body, ctype = _multipart(fields, files)
-    req = urllib.request.Request(
-        API.format(token=token, method=method), data=body,
-        headers={"Content-Type": ctype})
-    try:
-        resp = _opener(proxy).open(req, timeout=60)
-        r = json.loads(resp.read().decode("utf-8"))
-        return bool(r.get("ok")), r.get("description", "")
     except urllib.error.HTTPError as e:
         detail = e.read().decode("utf-8", "ignore")[:200]
         return False, f"HTTP {e.code}: {detail}"
@@ -190,35 +131,34 @@ def _explain(err: str, token: str) -> None:
 
 
 def send_card(token: str, chat_id: str, post, channels: list[str] | None = None,
-              proxy: str | None = None, with_photo: bool = True,
+              proxy: str | None = None, large_media: bool = True,
               silent: bool = True) -> bool:
-    """发一条卡片：优先带图，失败降级纯文本；遇 429 按 retry_after 退避重试一次。"""
-    caption = build_card(post, channels)
-    text = build_message(post, channels)
+    """发一条卡片。
+
+    走 sendMessage + link_preview_options，让 Telegram 自己抓原文页生成预览
+    （大图 + 标题 + 描述），效果与原频道一致。这条路径不需要下载/上传图片，
+    比原来的 sendPhoto 更快，也不受图床变化影响。
+    遇 429 按 retry_after 退避重试一次。
+    """
+    text = build_card(post, channels)
     if len(text) > MAX_TEXT:
         text = text[: MAX_TEXT - 1] + "…"
 
-    blob = download_photo(post.image_url, proxy) if (with_photo and post.image_url) else None
+    url = (post.article_url or "").strip()
+    payload = {"chat_id": chat_id, "text": text, "parse_mode": "HTML",
+               "disable_notification": silent}
+    if url:
+        payload["link_preview_options"] = {
+            "url": url,
+            "prefer_large_media": bool(large_media),
+            "show_above_text": False,
+        }
+    else:
+        payload["link_preview_options"] = {"is_disabled": True}
+
     last_err = ""
-
     for attempt in range(2):
-        if blob:
-            ok, err = _api_upload(
-                token, "sendPhoto",
-                {"chat_id": chat_id, "caption": caption, "parse_mode": "HTML",
-                 "disable_notification": "true" if silent else "false"},
-                {"photo": ("cover.jpg", blob)}, proxy)
-            if ok:
-                return True
-            last_err = err
-            print(f"    sendPhoto 失败：{err}")
-            if not _retry_after(err):
-                blob = None        # 非限流错误（格式/权限）→ 本轮改发纯文本
-
-        ok, err = _api_call(token, "sendMessage",
-                            {"chat_id": chat_id, "text": text, "parse_mode": "HTML",
-                             "disable_web_page_preview": True,
-                             "disable_notification": silent}, proxy)
+        ok, err = _api_call(token, "sendMessage", payload, proxy)
         if ok:
             return True
         last_err = err

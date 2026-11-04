@@ -138,7 +138,22 @@ def main() -> None:
     check("无地址时标题差异也能判重",
           d3.is_duplicate(group_posts([fake2])[0])[0])
 
-    print("\n[7] 状态清理")
+    print("\n[7] 换栏目路径仍判重（soft→tech）")
+    soft = type(p)(**{**p.__dict__,
+                      "article_url": "https://www.cnbeta.com.tw/articles/soft/1584994.htm",
+                      "post_id": "x/9", "channel": "x",
+                      "title": "埃森哲被指发布充斥AI幻觉的人工智能研究报告"})
+    d5 = Deduper({})
+    d5.mark(group_posts([soft])[0])
+    tech = type(soft)(**{**soft.__dict__,
+                         "article_url": "https://www.cnbeta.com.tw/articles/tech/1584994.htm",
+                         "post_id": "x/10",
+                         "title": "埃森哲被指发布充斥AI幻觉的人工智能研究报告（更新）"})
+    dup, reason = d5.is_duplicate(group_posts([tech])[0])
+    check("换栏目路径仍判重", dup, reason or "未命中")
+    check("判重原因标注文章 ID", "1584994" in reason, reason)
+
+    print("\n[8] 状态清理")
     d4 = Deduper({})
     old = type(p)(**{**p.__dict__, "article_url": "https://cnbeta.com.tw/a/1.htm"})
     g_old = group_posts([old])[0]

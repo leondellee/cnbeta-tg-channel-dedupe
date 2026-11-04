@@ -56,7 +56,7 @@ GROUPS = group_posts(POSTS)
 def base_cfg(**over):
     cfg = {"bot_token": "x", "chat_id": "1", "proxy": "", "dry_run": False,
            "max_push_per_run": 60, "max_age_hours": 36, "batch_header": True,
-           "with_photo": True, "silent": True, "pages": 1}
+           "preview_large_media": True, "silent": True, "pages": 1}
     cfg.update(over)
     return cfg
 

@@ -70,7 +70,8 @@ def main() -> None:
         print(build_card(g.primary, labels))
         if not no_send and chat_id:
             ok = send_card(token, chat_id, g.primary, labels, proxy=proxy,
-                           with_photo=cfg.get("with_photo", True), silent=False)
+                           large_media=cfg.get("preview_large_media", True),
+                           silent=False)
             print(f"[{'已发送' if ok else '发送失败'}]")
 
     print("\n完成。本次预览不写入去重状态，不影响正式推送。")

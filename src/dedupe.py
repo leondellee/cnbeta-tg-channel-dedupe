@@ -91,6 +91,19 @@ def post_key(post: Post) -> str:
     return "t:" + fp if fp else ""
 
 
+_ID_RE = re.compile(r"/(\d{4,})\.htm")
+
+
+def article_id(url: str) -> str:
+    """取 cnBeta 的文章数字 ID（如 1584994）。
+
+    必要原因：/articles/soft/1584994.htm 会 301 跳到 /articles/tech/1584994.htm
+    （换栏目），地址归一化后路径不同，但其实是同一篇文章。ID 才是真唯一键。
+    """
+    m = _ID_RE.search(url or "")
+    return m.group(1) if m else ""
+
+
 def parse_ts(date: str) -> float:
     """ISO8601 → 时间戳；失败返回 0（排序时会排到最前，不会丢内容）。"""
     if not date:
@@ -160,10 +173,20 @@ class Deduper:
                 self._title_index[entry[1]] = max(
                     self._title_index.get(entry[1], 0), float(entry[0]))
 
+        # 文章 ID 索引直接从已有的 u: 键里解析，不需要改状态格式
+        self._id_index: dict[str, float] = {}
+        for k, v in self.seen.items():
+            aid = article_id(k)
+            if aid and isinstance(v, list) and v:
+                self._id_index[aid] = max(self._id_index.get(aid, 0), float(v[0]))
+
     # -- 判定 ---------------------------------------------------------------
     def is_duplicate(self, group: Group) -> tuple[bool, str]:
         if group.key in self.seen:
             return True, "原文地址已收录"
+        aid = article_id(group.primary.article_url)
+        if aid and aid in self._id_index:
+            return True, f"文章 ID {aid} 已收录（换了栏目路径）"
         fp = group.title_fp
         if fp:
             last = self._title_index.get(fp, 0)
@@ -178,6 +201,9 @@ class Deduper:
         self.seen[group.key] = [int(ts), fp]
         if fp:
             self._title_index[fp] = max(self._title_index.get(fp, 0), ts)
+        aid = article_id(group.primary.article_url)
+        if aid:
+            self._id_index[aid] = max(self._id_index.get(aid, 0), ts)
 
     def mark_all(self, groups: list[Group]) -> None:
         now = time.time()
@@ -198,6 +224,11 @@ class Deduper:
             self.seen = dict(ordered)
         self._title_index = {v[1]: float(v[0]) for v in self.seen.values()
                              if isinstance(v, list) and len(v) >= 2 and v[1]}
+        self._id_index = {}
+        for k, v in self.seen.items():
+            aid = article_id(k)
+            if aid and isinstance(v, list) and v:
+                self._id_index[aid] = max(self._id_index.get(aid, 0), float(v[0]))
         return len(drop)
 
     def to_dict(self) -> dict:

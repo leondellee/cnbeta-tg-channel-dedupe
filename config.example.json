@@ -6,7 +6,7 @@
   "max_push_per_run": 60,
   "max_age_hours": 36,
   "batch_header": true,
-  "with_photo": true,
   "silent": true,
-  "dry_run": false
+  "dry_run": false,
+  "preview_large_media": true
 }

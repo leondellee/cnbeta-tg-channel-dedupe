@@ -64,7 +64,7 @@ def load_config() -> dict:
     cfg.setdefault("max_push_per_run", 60)
     cfg.setdefault("max_age_hours", 36)
     cfg.setdefault("batch_header", True)
-    cfg.setdefault("with_photo", True)
+    cfg.setdefault("preview_large_media", True)
     cfg.setdefault("silent", True)
     cfg.setdefault("dry_run", False)
     return cfg
@@ -186,7 +186,7 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
     proxy = config.get("proxy") or None
     dry = bool(config.get("dry_run"))
     cap = int(config.get("max_push_per_run", 25))
-    with_photo = bool(config.get("with_photo", True))
+    large_media = bool(config.get("preview_large_media", True))
     silent = bool(config.get("silent", True))
 
     # 缺密钥必须显式失败：否则云端会安静地空跑，看起来「成功」但什么都没发
@@ -277,13 +277,13 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
             labels = [LABEL.get(c, c) for c in g.channels]
             attempted += 1
             ok = send_card(token, chat_id, g.primary, labels, proxy=proxy,
-                           with_photo=with_photo, silent=silent)
+                           large_media=large_media, silent=silent)
             if ok:
                 dd.mark(g)          # 关键：只有发成功才记账，失败下轮重试
                 sent += 1
             else:
                 print(f"    推送失败，下轮重试：{g.primary.title[:40]}")
-            time.sleep(2.5)         # Telegram 单聊约 20 条/分钟，留足余量
+            time.sleep(3.2)         # 单聊约 20 条/分钟，留足余量
 
     dropped = dd.prune()
     if verbose and dropped:
