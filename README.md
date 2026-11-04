@@ -3,8 +3,8 @@
 把 5 个 cnBeta 推送频道的重复内容合并成一条，按原文地址去重后推到你 Telegram 私聊。
 **部署后不在你电脑上跑，不消耗任何 token，每 5 分钟自动汇总一次。**
 
-> 定时不靠 GitHub 自带的 schedule（它会把 `*/5` 节流成几小时一次），
-> 而是用 Cloudflare Worker 的 cron 去戳 `workflow_dispatch`，详见「触发频率」。
+> 链路：Cloudflare Worker（cron `*/5`，秒级准时）→ `workflow_dispatch` → GitHub Actions
+> 抓取去重推送。Actions 自带的 schedule 会被节流成几小时一次，只留作兜底。
 
 ---
 
@@ -90,18 +90,28 @@ Actions 里的 `schedule` 保留每天三场作为兜底：Worker 万一挂了�
 
 ### 部署 Worker
 
+**已上线**：`cnbeta-dedupe-cron`，cron `*/5`，实测 19:40:53 准点触发、Actions 44 秒跑完。
+
+首次部署用的是 Cloudflare REST API（`PUT /workers/scripts/{name}` + `/schedules` + `/secrets`），
+因为 wrangler 3/4 在当前环境都报错。以后改 `worker.js` 只需重新 PUT 上传，不需要动 cron 和 secret。
+
+命令行方式（供参考）：
+
 ```bash
 cd cloudflare-cron
-npx wrangler login                 # 浏览器授权，只需一次
-npx wrangler deploy                # 部署，cron 随之生效
-npx wrangler secret put GH_TOKEN   # 粘贴细粒度 PAT
+npx wrangler login                 # 浏览器授权
+npx wrangler deploy
+npx wrangler secret put GH_TOKEN
 ```
 
 `GH_TOKEN` 是 fine-grained PAT，只需对 `cnbeta-tg-channel-dedupe` 一个仓库的
-**Actions: Read and write** 权限；有效期建议 90 天，到期前换一次。
+**Actions: Read and write**；建议 90 天有效期。
 
-也可以在 Cloudflare Dashboard 里手动建：Workers & Pages → Create Worker →
-粘贴 `worker.js` → Settings 里加 Cron `*/5 * * * *` 和 Secret `GH_TOKEN`。
+> **两个坑**：
+> 1. 本地代理会缓存 `api.cloudflare.com` 的 GET 响应，表现为「写入成功但读不到」，
+>    调用 API 时加 `--noproxy '*'` 直连。
+> 2. `*.workers.dev` 在国内直连不通（tg-scheduler 那个也一样），但 cron 是 Cloudflare
+>    内部触发，**不影响**；要用 `?key=TRIGGER_KEY` 手动触发请走代理。
 
 ---
 
