@@ -87,8 +87,11 @@ GitHub 上新建，**不要勾 README / .gitignore / license**，名字随意（
 
 ```bash
 cp config.example.json config.json
-# 填 bot_token、chat_id（zzzdm 那套用的是同一个 bot 和同一个 chat_id）
+python tools/setup_bot.py <BOT_TOKEN> 123132586
 ```
+
+**用独立的 bot，不要和 zzzdm 共用**——私聊是一条时间线，共用会把促销和新闻混在一起。
+脚本会依次校验 token、验证能否私聊（没点 START 会 403）、写回 `config.json`。
 
 ### 第 3 步：推送
 

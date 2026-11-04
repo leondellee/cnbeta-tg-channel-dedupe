@@ -171,6 +171,17 @@ def _api_upload(token: str, method: str, fields: dict, files: dict,
 # 发送
 # ---------------------------------------------------------------------------
 
+def _explain(err: str, token: str) -> None:
+    """把 Telegram 的常见错误翻译成可执行的下一步。"""
+    if "403" in err or "blocked" in err or "chat not found" in err:
+        print("    → 新 bot 必须先点 START：在 Telegram 搜到它，点一下开始，"
+              "否则它无权给你发私聊")
+    elif "401" in err or "Unauthorized" in err:
+        print("    → token 无效，检查 BotFather 给的那串是否复制完整")
+    elif "429" in err or "Flood" in err:
+        print("    → 触发限流，本轮剩余的下一轮再发")
+
+
 def send_card(token: str, chat_id: str, post, channels: list[str] | None = None,
               proxy: str | None = None, with_photo: bool = True,
               silent: bool = True) -> bool:
@@ -188,6 +199,7 @@ def send_card(token: str, chat_id: str, post, channels: list[str] | None = None,
             if ok:
                 return True
             print(f"    sendPhoto 失败：{err}")
+            _explain(err, token)
 
     text = build_message(post, channels)
     if len(text) > MAX_TEXT:
@@ -198,6 +210,7 @@ def send_card(token: str, chat_id: str, post, channels: list[str] | None = None,
                          "disable_notification": silent}, proxy)
     if not ok:
         print(f"    sendMessage 失败：{err}")
+        _explain(err, token)
     return ok
 
 
@@ -210,6 +223,7 @@ def send_message(token: str, chat_id: str, text: str,
                          "disable_notification": silent}, proxy)
     if not ok:
         print(f"    sendMessage 失败：{err}")
+        _explain(err, token)
     return ok
 
 
