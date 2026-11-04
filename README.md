@@ -238,6 +238,7 @@ cnbeta-dedupe/
 ├── tools/
 │   ├── preview.py    样卡预览（验收样式用）
 │   ├── setup_bot.py  新 bot 配置助手
+│   ├── diagnose_preview.py  逐篇检查 OG 标签与 TelegramBot 抓取结果
 │   └── deploy.py     一键推 GitHub
 ├── tests/
 │   ├── test_dedupe.py      29 项回归（解析/去重）
@@ -266,7 +267,19 @@ Bot 无法读取它不在其中的频道；即使能读，原生转发也会把�
 **想改成别的频率？**
 改 `.github/workflows/aggregate.yml` 的 cron 即可（UTC 时间，北京时间 = UTC+8），
 但请记住它只是「请求」：实测能跑到的上限约 5 次/天，写更密不会有更多次运行。
-一天三场配合 60 条/轮的上限，单批约 27 条，够用。
+真正的 5 分钟节奏来自 `cloudflare-cron/` 的 Worker。
+
+**个别卡片没有链接预览，为什么？**
+先用 `python tools/diagnose_preview.py` 逐篇查：状态码、是否重定向、
+`og:title` / `og:description` / `og:image` 是否齐全（用 `TelegramBot (like TwitterBot)` UA）。
+
+实测 7 篇全部齐全、全部 200，所以通常不是页面问题，而是 **Telegram 抓取预览被节流**：
+短时间连发多条带链接的消息时，它不会逐条去抓，个别消息返回的 `result` 里没有 `web_page`。
+现在的处理是：发完检查 `web_page`，缺了就 `deleteMessage` 删掉、隔 6 秒重发一次。
+若某篇原文页本身缺 `og:image`（cnbeta 偶尔会有），重发也无济于事——原频道同样如此。
+
+> 注：cnbeta 的 `/articles/soft/xxx.htm` 会 301 到 `/articles/tech|game/xxx.htm`，
+> Telegram 会自动跟随，不影响预览，也不影响去重（另有文章 ID 兜底）。
 
 **发现重复或漏推怎么办？**
 - 重复：把地址加进 `dedupe.normalize_url` 的主机别名表，或调小 `TITLE_WINDOW_SEC`

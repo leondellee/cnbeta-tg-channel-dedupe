@@ -93,7 +93,9 @@ def _opener(proxy: str | None):
 
 
 def _api_call(token: str, method: str, payload: dict,
-              proxy: str | None) -> tuple[bool, str]:
+              proxy: str | None) -> tuple[bool, str, dict]:
+    """返回 (ok, 错误描述, result)。result 里能拿到 message_id / web_page，
+    用来判断这条消息到底有没有挂上链接预览。"""
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(
         API.format(token=token, method=method), data=data,
@@ -101,12 +103,12 @@ def _api_call(token: str, method: str, payload: dict,
     try:
         resp = _opener(proxy).open(req, timeout=30)
         body = json.loads(resp.read().decode("utf-8"))
-        return bool(body.get("ok")), body.get("description", "")
+        return bool(body.get("ok")), body.get("description", ""), body.get("result") or {}
     except urllib.error.HTTPError as e:
         detail = e.read().decode("utf-8", "ignore")[:200]
-        return False, f"HTTP {e.code}: {detail}"
+        return False, f"HTTP {e.code}: {detail}", {}
     except Exception as e:
-        return False, f"{type(e).__name__}: {str(e)[:140]}"
+        return False, f"{type(e).__name__}: {str(e)[:140]}", {}
 
 
 # ---------------------------------------------------------------------------
@@ -138,7 +140,11 @@ def send_card(token: str, chat_id: str, post, channels: list[str] | None = None,
     走 sendMessage + link_preview_options，让 Telegram 自己抓原文页生成预览
     （大图 + 标题 + 描述），效果与原频道一致。这条路径不需要下载/上传图片，
     比原来的 sendPhoto 更快，也不受图床变化影响。
-    遇 429 按 retry_after 退避重试一次。
+
+    实测补充（2026-11-04）：连带几条带链接的消息时，Telegram 抓预览会被节流，
+    个别消息返回的 result 里没有 web_page（表现为卡片光秃秃的，只有标题和分类）。
+    因此发送后检查 web_page，缺了就删掉、隔 6 秒重发一次。
+    遇 429 仍按 retry_after 退避。
     """
     text = build_card(post, channels)
     if len(text) > MAX_TEXT:
@@ -158,8 +164,17 @@ def send_card(token: str, chat_id: str, post, channels: list[str] | None = None,
 
     last_err = ""
     for attempt in range(2):
-        ok, err = _api_call(token, "sendMessage", payload, proxy)
+        ok, err, res = _api_call(token, "sendMessage", payload, proxy)
         if ok:
+            # 挂没挂上预览，Telegram 会在 result.web_page 里告诉我们。
+            # 短时间连发多条带链接的消息时，它抓取预览会被节流，偶尔不挂；
+            # 这时删掉重发一次（隔几秒错开），比留一张光秃秃的卡片好。
+            if url and not res.get("web_page") and attempt == 0 and res.get("message_id"):
+                print(f"    未挂上预览，删除后重发：{post.title[:30]}")
+                _api_call(token, "deleteMessage",
+                          {"chat_id": chat_id, "message_id": res["message_id"]}, proxy)
+                time.sleep(6)
+                continue
             return True
         last_err = err
         print(f"    sendMessage 失败：{err}")
@@ -178,10 +193,10 @@ def send_card(token: str, chat_id: str, post, channels: list[str] | None = None,
 def send_message(token: str, chat_id: str, text: str,
                  disable_preview: bool = True, proxy: str | None = None,
                  silent: bool = False) -> bool:
-    ok, err = _api_call(token, "sendMessage",
-                        {"chat_id": chat_id, "text": text, "parse_mode": "HTML",
-                         "disable_web_page_preview": disable_preview,
-                         "disable_notification": silent}, proxy)
+    ok, err, _res = _api_call(token, "sendMessage",
+                              {"chat_id": chat_id, "text": text, "parse_mode": "HTML",
+                               "disable_web_page_preview": disable_preview,
+                               "disable_notification": silent}, proxy)
     if not ok:
         print(f"    sendMessage 失败：{err}")
         _explain(err, token)
