@@ -18,6 +18,7 @@ import json
 import os
 import sys
 import time
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -60,8 +61,9 @@ def load_config() -> dict:
     cfg.setdefault("chat_id", os.environ.get("TG_CHAT_ID", ""))
     cfg.setdefault("proxy", os.environ.get("TG_PROXY", ""))
     cfg.setdefault("pages", 1)
-    cfg.setdefault("max_push_per_run", 25)
-    cfg.setdefault("max_age_hours", 24)
+    cfg.setdefault("max_push_per_run", 60)
+    cfg.setdefault("max_age_hours", 36)
+    cfg.setdefault("batch_header", True)
     cfg.setdefault("with_photo", True)
     cfg.setdefault("silent", True)
     cfg.setdefault("dry_run", False)
@@ -168,6 +170,16 @@ def collect(config: dict) -> tuple[list[Post], list[str]]:
     return posts, failed
 
 
+def slot_label() -> str:
+    """按北京时间判断当前属于哪一场（用于批次抬头）。"""
+    h = datetime.now(timezone(timedelta(hours=8))).hour
+    if h < 12:
+        return "上午场"
+    if h < 18:
+        return "下午场"
+    return "晚上场"
+
+
 def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
     token = config.get("bot_token", "")
     chat_id = str(config.get("chat_id", ""))
@@ -254,7 +266,14 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
             print("-" * 50)
             print(f"[dry_run] 另有 {max(0, len(fresh) - 1)} 篇待发")
     else:
-        for g in fresh[:cap]:
+        batch = fresh[:cap]
+        # 三场制下一批可能十几二十条，加个抬头便于在对话里区分批次
+        if len(batch) >= 6 and config.get("batch_header", True):
+            head = (f"<b>{slot_label()} · {len(batch)} 条</b>\n"
+                    f"{datetime.now(timezone(timedelta(hours=8))):%m-%d %H:%M}")
+            send_message(token, chat_id, head, proxy=proxy, silent=silent)
+
+        for g in batch:
             labels = [LABEL.get(c, c) for c in g.channels]
             attempted += 1
             ok = send_card(token, chat_id, g.primary, labels, proxy=proxy,
@@ -264,7 +283,7 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
                 sent += 1
             else:
                 print(f"    推送失败，下轮重试：{g.primary.title[:40]}")
-            time.sleep(1.2)
+            time.sleep(2.5)         # Telegram 单聊约 20 条/分钟，留足余量
 
     dropped = dd.prune()
     if verbose and dropped:

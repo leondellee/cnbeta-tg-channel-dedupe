@@ -1,7 +1,11 @@
 # cnBeta 五频道去重聚合
 
 把 5 个 cnBeta 推送频道的重复内容合并成一条，按原文地址去重后推到你 Telegram 私聊。
-**部署后不在你电脑上跑，不消耗任何 token，每 5 分钟云端自动检查一次。**
+**部署后不在你电脑上跑，不消耗任何 token，每天三场（09:20 / 13:20 / 19:20）自动汇总。**
+
+> 为什么不是每 5 分钟：GitHub Actions 的 schedule 对免费账号有强节流，写 `*/5`
+> 实际也只会一天跑 5 次左右（实测见下方「触发频率」）。与其被动随机、可能凌晨推送，
+> 不如显式定成三场。
 
 ---
 
@@ -59,6 +63,29 @@ cnbeta_com_buzz   ┘
 
 > 注意：`cnbeta_com` 不是其余四个的超集，只是「精选」子集。五个频道**各有独家**，
 > 所以要做并集，不能只跟总频道。
+
+---
+
+## 触发频率：GitHub 会节流，别信 `*/5`
+
+Actions 的 `schedule` 只是「请求」而不是「定时器」。同账号下 zzzdm 仓库（同样写 `*/5`）
+最近 60 次定时运行的真实间隔：
+
+| 指标 | 实测值 |
+|---|---|
+| 间隔中位数 | **4.7 小时** |
+| 最短 / 最长 | 1.9 小时 / 10.3 小时 |
+| 换算 | 约 **5 次/天**，而非理论上的 288 次 |
+
+所以本项目改成一天三场：`20 1,5,11 * * *`（UTC）＝ 北京时间 **09:20 / 13:20 / 19:20**。
+即便如此，GitHub 仍可能延迟 0～2 小时才真正触发，批次抬头里的「上午场 / 下午场 / 晚上场」
+是按实际运行时刻算的，别拿它当准点保证。
+
+要真正的 5 分钟级只有换执行环境——Cloudflare Workers 的 cron 免费且准时，
+但需要另写一份 JS 并注册账号；GitHub Actions 做不到。
+
+> 三场制带来的副作用是单批条数变多（一天约 80 篇 ÷ 3 ≈ 27 条/批），
+> 因此 `max_push_per_run` 提到 60、`max_age_hours` 提到 36，避免内容被截断或过期丢弃。
 
 ---
 
@@ -123,8 +150,14 @@ python tools/deploy.py https://github.com/<用户名>/cnbeta-dedupe.git
 # 回归测试（解析 / 归一化 / 归组 / 跨轮去重，29 项）
 python tests/test_dedupe.py
 
+# 主流程回归（冷启动 / 批次 / 上限 / 全失败报错，12 项，离线跑）
+python tests/test_flow.py
+
 # 只看判定，不发消息
 python src/service.py --dry-run
+
+# 配置新 bot（校验 token、验证能否私聊、写回 config.json）
+python tools/setup_bot.py <BOT_TOKEN> 123132586
 
 # 发 3 条样卡到私聊（不动去重状态，改样式后用它验收）
 python tools/preview.py 3
@@ -147,9 +180,10 @@ python src/service.py --check
 | `bot_token` | — | BotFather 给的 token |
 | `chat_id` | — | 接收私聊的数字 ID |
 | `proxy` | — | 本地代理，云端留空 |
-| `pages` | 1 | 每频道抓几页（1 页 20 条，够覆盖 5 分钟间隔） |
-| `max_push_per_run` | 25 | 单轮最多推几条，超出留下轮 |
-| `max_age_hours` | 24 | 超过这个时长的旧闻只记账不推送（防停机后刷旧闻） |
+| `pages` | 1 | 每频道抓几页（1 页 20 条，按 4.7 小时间隔算足够覆盖） |
+| `max_push_per_run` | 60 | 单轮最多推几条，超出留下轮 |
+| `max_age_hours` | 36 | 超过这个时长的旧闻只记账不推送（防停机后刷旧闻） |
+| `batch_header` | true | 满 6 条时先发一条「上午场 · N 条」的抬头 |
 | `with_photo` | true | 是否带配图 |
 | `silent` | true | 静音推送（不弹通知） |
 | `dry_run` | false | 只判定不发送 |
@@ -167,9 +201,11 @@ cnbeta-dedupe/
 │   └── service.py    主流程（抓 → 合并 → 去重 → 推）
 ├── tools/
 │   ├── preview.py    样卡预览（验收样式用）
+│   ├── setup_bot.py  新 bot 配置助手
 │   └── deploy.py     一键推 GitHub
 ├── tests/
-│   ├── test_dedupe.py      29 项回归
+│   ├── test_dedupe.py      29 项回归（解析/去重）
+│   ├── test_flow.py        12 项回归（主流程，离线）
 │   └── fixtures/*.html     5 个真实频道页快照
 ├── .github/workflows/aggregate.yml
 ├── config.json      本地配置（含 token，已 gitignore）
@@ -188,9 +224,10 @@ Bot 无法读取它不在其中的频道；即使能读，原生转发也会把�
 不会。发成功才记账（`dd.mark` 在 `send_card` 返回 ok 之后），失败的下一轮重试；
 状态文件随工作流提交回仓库，跨次运行有效。
 
-**Actions 每 5 分钟一次，会不会太频繁？**
-一次运行 5 个 HTTP 请求 + 最多 25 条推送，免费额度完全够。
-实际触发常有 1~10 分钟延迟，GitHub 免费 runner 的正常现象。
+**想改成别的频率？**
+改 `.github/workflows/aggregate.yml` 的 cron 即可（UTC 时间，北京时间 = UTC+8），
+但请记住它只是「请求」：实测能跑到的上限约 5 次/天，写更密不会有更多次运行。
+一天三场配合 60 条/轮的上限，单批约 27 条，够用。
 
 **发现重复或漏推怎么办？**
 - 重复：把地址加进 `dedupe.normalize_url` 的主机别名表，或调小 `TITLE_WINDOW_SEC`

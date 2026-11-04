@@ -148,7 +148,9 @@ def group_posts(posts: list[Post]) -> list[Group]:
 
 class Deduper:
     def __init__(self, state: dict | None = None):
-        self.state = state or {}
+        # 注意：不能用 `state or {}`——空 dict 是 falsy，会丢掉调用方的引用，
+        # 导致冷启动时 run_once 填好的状态写不回传入的 state。
+        self.state = state if state is not None else {}
         self.state.setdefault("version", STATE_VERSION)
         self.state.setdefault("initialized", False)
         self.seen: dict[str, list] = self.state.setdefault("seen", {})

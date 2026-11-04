@@ -21,6 +21,7 @@ import html as html_mod
 import json
 import mimetypes
 import re
+import time
 import urllib.error
 import urllib.request
 import uuid
@@ -171,6 +172,12 @@ def _api_upload(token: str, method: str, fields: dict, files: dict,
 # 发送
 # ---------------------------------------------------------------------------
 
+def _retry_after(err: str) -> int:
+    """从 Telegram 的 429 描述里取出建议等待秒数（上限 90s，避免卡死流程）。"""
+    m = re.search(r"retry after (\d+)", err, re.I)
+    return min(int(m.group(1)), 90) if m else 0
+
+
 def _explain(err: str, token: str) -> None:
     """把 Telegram 的常见错误翻译成可执行的下一步。"""
     if "403" in err or "blocked" in err or "chat not found" in err:
@@ -185,11 +192,16 @@ def _explain(err: str, token: str) -> None:
 def send_card(token: str, chat_id: str, post, channels: list[str] | None = None,
               proxy: str | None = None, with_photo: bool = True,
               silent: bool = True) -> bool:
-    """发一条卡片：优先带图，失败降级纯文本。"""
+    """发一条卡片：优先带图，失败降级纯文本；遇 429 按 retry_after 退避重试一次。"""
     caption = build_card(post, channels)
+    text = build_message(post, channels)
+    if len(text) > MAX_TEXT:
+        text = text[: MAX_TEXT - 1] + "…"
 
-    if with_photo and post.image_url:
-        blob = download_photo(post.image_url, proxy)
+    blob = download_photo(post.image_url, proxy) if (with_photo and post.image_url) else None
+    last_err = ""
+
+    for attempt in range(2):
         if blob:
             ok, err = _api_upload(
                 token, "sendPhoto",
@@ -198,20 +210,29 @@ def send_card(token: str, chat_id: str, post, channels: list[str] | None = None,
                 {"photo": ("cover.jpg", blob)}, proxy)
             if ok:
                 return True
+            last_err = err
             print(f"    sendPhoto 失败：{err}")
-            _explain(err, token)
+            if not _retry_after(err):
+                blob = None        # 非限流错误（格式/权限）→ 本轮改发纯文本
 
-    text = build_message(post, channels)
-    if len(text) > MAX_TEXT:
-        text = text[: MAX_TEXT - 1] + "…"
-    ok, err = _api_call(token, "sendMessage",
-                        {"chat_id": chat_id, "text": text, "parse_mode": "HTML",
-                         "disable_web_page_preview": True,
-                         "disable_notification": silent}, proxy)
-    if not ok:
+        ok, err = _api_call(token, "sendMessage",
+                            {"chat_id": chat_id, "text": text, "parse_mode": "HTML",
+                             "disable_web_page_preview": True,
+                             "disable_notification": silent}, proxy)
+        if ok:
+            return True
+        last_err = err
         print(f"    sendMessage 失败：{err}")
-        _explain(err, token)
-    return ok
+
+        wait = _retry_after(err)
+        if attempt == 0 and wait:
+            print(f"    触发限流，等待 {wait}s 后重试")
+            time.sleep(wait)
+            continue
+        break
+
+    _explain(last_err, token)
+    return False
 
 
 def send_message(token: str, chat_id: str, text: str,
