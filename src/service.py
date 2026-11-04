@@ -213,7 +213,8 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
         dd.mark_all(groups)
         dd.set_initialized()
         dd.prune()
-        save_state(dd.to_dict())
+        if not dry:                  # 演练不落盘，免得污染真实状态
+            save_state(dd.to_dict())
         msg = (f"<b>cnBeta 聚合已启动</b>\n\n"
                f"已收录基线 {len(groups)} 篇（不补发历史），"
                f"之后新文章将实时推送。\n"
@@ -289,7 +290,8 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
     if verbose and dropped:
         print(f"状态清理：移除 {dropped} 条过期记录")
 
-    save_state(dd.to_dict())
+    if not dry:
+        save_state(dd.to_dict())
     stats = dd.stats()
 
     # 全部发送失败 = 配置/权限问题（被拉黑、chat_id 写错），必须让 Actions 变红，
