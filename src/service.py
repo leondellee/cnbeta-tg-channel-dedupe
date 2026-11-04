@@ -177,6 +177,10 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
     with_photo = bool(config.get("with_photo", True))
     silent = bool(config.get("silent", True))
 
+    # 缺密钥必须显式失败：否则云端会安静地空跑，看起来「成功」但什么都没发
+    if not dry and (not token or not chat_id):
+        raise RuntimeError("缺少 TG_BOT_TOKEN / TG_CHAT_ID，请先在仓库 Secrets 里配置")
+
     posts, failed = collect(config)
     if verbose:
         print(f"抓到 {len(posts)} 条 / {len(CHANNELS) - len(failed)} 个频道"
@@ -248,8 +252,6 @@ def run_once(config: dict, state: dict, verbose: bool = True) -> dict:
             print(build_card(g.primary, [LABEL[c] for c in g.channels]))
             print("-" * 50)
             print(f"[dry_run] 另有 {max(0, len(fresh) - 1)} 篇待发")
-    elif not token or not chat_id:
-        print("[跳过推送] 缺少 bot_token 或 chat_id")
     else:
         for g in fresh[:cap]:
             labels = [LABEL.get(c, c) for c in g.channels]
