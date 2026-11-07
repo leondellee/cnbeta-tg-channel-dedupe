@@ -1,13 +1,13 @@
 # cnBeta 五频道去重聚合
 
 把 5 个 cnBeta 推送频道的重复内容合并成一条，按原文地址去重后推到你 Telegram 私聊。
-**部署后不在你电脑上跑，不消耗任何 token，每 30 分钟自动汇总一次。**
+**部署后不在你电脑上跑，不消耗任何 token，每 5 分钟自动汇总一次。**
 
-> 链路：Cloudflare Worker（cron `*/30`，秒级准时）→ `workflow_dispatch` → GitHub Actions
+> 链路：Cloudflare Worker（cron `*/5`，秒级准时）→ `workflow_dispatch` → GitHub Actions
 > 抓取去重推送。Actions 自带的 schedule 会被节流成几小时一次，只留作兜底。
 >
-> 为什么不是 5 分钟：仓库是 Private，Actions 按分钟计费且不足 1 分钟按 1 分钟算，
-> `*/5` 会把 2,000 分钟/月的免费额度在 7 天内烧光。详见「触发频率」。
+> **仓库必须保持 Public**：私有仓库的 Actions 按分钟计费，`*/5` 会在 7 天内烧光额度。
+> 详见「触发频率」。
 
 ---
 
@@ -71,11 +71,9 @@ cnbeta_com_buzz   ┘
 
 ---
 
-## 触发频率：两层限制，最终定在 30 分钟
+## 触发频率：Worker 定时器 + 5 分钟节奏
 
-### 限制一：Actions 自带的 schedule 会被节流
-
-Actions 的 `schedule` 只是「请求」而不是「定时器」。同账号下 zzzdm 仓库（同样写 `*/5`）
+Actions 的 `schedule` 只是「请求」而不是「定时器」。同账号下另一个仓库（同样写 `*/5`）
 最近 60 次定时运行的真实间隔：
 
 | 指标 | 实测值 |
@@ -85,32 +83,27 @@ Actions 的 `schedule` 只是「请求」而不是「定时器」。同账号下
 | 换算 | 约 **5 次/天**，而非理论上的 288 次 |
 
 **解决办法**：`cloudflare-cron/` 里的 Worker 用 Cloudflare 的 cron 准确地调
-`workflow_dispatch`。Cloudflare 的 cron 是秒级准时的，Python 逻辑一行不用改。
-
-### 限制二：私有仓库的 Actions 按分钟计费
-
-这一条比节流更硬：
-
-| 项 | 数值 |
-|---|---|
-| 计费方式 | 每个 job **不足 1 分钟按 1 分钟算** |
-| Free 计划额度 | 2,000 分钟/月（**仅私有仓库**；公开仓库免费且不限） |
-| `*/5` 消耗 | 288 次/天 × 1 分钟 × 30 = **8,640 分钟/月**，约 7 天耗尽 |
-| `*/30` 消耗 | 48 次/天 × 1 分钟 × 30 = **1,440 分钟/月**，加兜底三场约 1,530 |
-| 耗尽后果 | 默认 spending limit 为 $0，工作流**直接停摆**，不是变慢 |
-
-所以最终定成 **每 30 分钟**（`*/30 * * * *`）：新闻延迟 ≤30 分钟，配额留 23% 余量。
-
-> 想回到 5 分钟只有两条路：仓库改回 Public（公开仓库不计分钟），
-> 或把抓取+推送整体搬进 Worker（不再跑 Actions，但要重写一遍 JS 并把状态放 KV）。
-
+`workflow_dispatch`（秒级准时），Python 逻辑一行不用改，Worker 只负责「戳一下」。
 Actions 里的 `schedule` 保留每天三场作为兜底：Worker 万一挂了，还能收到三次。
 
+> **前提：仓库必须是 Public。** 公开仓库的 Actions 不计分钟；一旦改成 Private，
+> 规则立刻变化——按分钟计费，且**每个 job 不足 1 分钟也按 1 分钟算**：
+
+| 频率 | 每天次数 | 每月计费 | 私有仓库下的结果 |
+|---|---|---|---|
+| `*/5` | 288 | 8,640 分钟 | ❌ 约 7 天耗尽 2,000 分钟免费额度，随后**工作流停摆** |
+| `*/15` | 96 | 2,880 分钟 | ❌ 仍超额度 |
+| `*/30` | 48 | 1,440 分钟 | ✅ 留 23% 余量 |
+
+额度耗尽且 spending limit 为 $0（默认）时，工作流是**直接不跑**，不是变慢。
+所以如果哪天要把仓库转 Private，必须先把 Worker 的 cron 降到 `*/30`。
+
+> 单批条数通常 1～3 条（5 分钟一次），批次抬头自然不会出现（阈值 6 条）。
 > `max_push_per_run: 60`、`max_age_hours: 36` 保持不变，只在长时间停机后才有意义。
 
 ### 部署 Worker
 
-**已上线**：`cnbeta-dedupe-cron`，cron `*/30`。
+**已上线**：`cnbeta-dedupe-cron`，cron `*/5`。
 
 首次部署用的是 Cloudflare REST API（`PUT /workers/scripts/{name}` + `/schedules` + `/secrets`），
 因为 wrangler 3/4 在当前环境都报错。以后改 `worker.js` 只需重新 PUT 上传，不需要动 cron 和 secret。
@@ -130,7 +123,7 @@ npx wrangler secret put GH_TOKEN
 > **两个坑**：
 > 1. 本地代理会缓存 `api.cloudflare.com` 的 GET 响应，表现为「写入成功但读不到」，
 >    调用 API 时加 `--noproxy '*'` 直连。
-> 2. `*.workers.dev` 在国内直连不通（tg-scheduler 那个也一样），但 cron 是 Cloudflare
+> 2. `*.workers.dev` 在国内直连不通（同账号另一个 Worker 也一样），但 cron 是 Cloudflare
 >    内部触发，**不影响**；要用 `?key=TRIGGER_KEY` 手动触发请走代理。
 
 ---
@@ -173,7 +166,7 @@ cp config.example.json config.json
 python tools/setup_bot.py <BOT_TOKEN> <你的数字ID>
 ```
 
-**用独立的 bot，不要和 zzzdm 共用**——私聊是一条时间线，共用会把促销和新闻混在一起。
+**用独立的 bot，不要和其他订阅共用一个**——私聊是一条时间线，共用会把不同内容混在一起。
 脚本会依次校验 token、验证能否私聊（没点 START 会 403）、写回 `config.json`。
 
 ### 第 3 步：推送
@@ -266,7 +259,7 @@ cnbeta-dedupe/
 │   └── fixtures/*.html     5 个真实频道页快照
 ├── .github/workflows/aggregate.yml
 ├── cloudflare-cron/
-│   ├── worker.js    每 30 分钟戳一次 workflow_dispatch
+│   ├── worker.js    每 5 分钟戳一次 workflow_dispatch
 │   └── wrangler.toml
 ├── config.json      本地配置（含 token，已 gitignore）
 └── output/state.json  去重状态（由工作流回写）
@@ -287,7 +280,7 @@ Bot 无法读取它不在其中的频道；即使能读，原生转发也会把�
 **想改成别的频率？**
 改 `.github/workflows/aggregate.yml` 的 cron 即可（UTC 时间，北京时间 = UTC+8），
 但请记住它只是「请求」：实测能跑到的上限约 5 次/天，写更密不会有更多次运行。
-真正的定时来自 `cloudflare-cron/` 的 Worker（当前 30 分钟，受私有仓库计费限制）。
+真正的定时来自 `cloudflare-cron/` 的 Worker（5 分钟）。
 
 **个别卡片没有链接预览，为什么？**
 先用 `python tools/diagnose_preview.py` 逐篇查：状态码、是否重定向、

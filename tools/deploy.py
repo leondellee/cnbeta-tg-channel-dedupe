@@ -13,21 +13,30 @@ from __future__ import annotations
 import glob
 import json
 import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROXY = "http://127.0.0.1:7890"
-NODE_GIT = "C:/Users/leon/.workbuddy/binaries/PortableGit/versions/*/cmd/git.exe"
 
 
 def find_git() -> str:
-    """PortableGit 版本目录会随升级变化，每次现查，别写死。"""
-    hits = [p for p in glob.glob(NODE_GIT) if "versions\\." not in p]
-    if not hits:
-        sys.exit("找不到 PortableGit 的 git.exe")
-    return sorted(hits)[-1]
+    """优先用 PATH 里的 git，其次扫常见安装位置（不把本机用户名写进代码）。"""
+    found = shutil.which("git")
+    if found:
+        return found
+    candidates = [
+        "C:/Program Files/Git/cmd/git.exe",
+        "C:/Program Files (x86)/Git/cmd/git.exe",
+        str(Path.home() / ".workbuddy/binaries/PortableGit/versions/*/cmd/git.exe"),
+    ]
+    for pat in candidates:
+        hits = [p for p in glob.glob(pat) if "versions\\." not in p]
+        if hits:
+            return sorted(hits)[-1]
+    sys.exit("找不到 git，请先安装 Git 或把它加入 PATH")
 
 
 GIT = find_git()
