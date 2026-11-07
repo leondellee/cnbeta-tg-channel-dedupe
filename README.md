@@ -150,7 +150,7 @@ GitHub 上新建，**不要勾 README / .gitignore / license**，名字随意（
 
 ```bash
 cp config.example.json config.json
-python tools/setup_bot.py <BOT_TOKEN> 123132586
+python tools/setup_bot.py <BOT_TOKEN> <你的数字ID>
 ```
 
 **用独立的 bot，不要和 zzzdm 共用**——私聊是一条时间线，共用会把促销和新闻混在一起。
@@ -193,7 +193,7 @@ python tests/test_flow.py
 python src/service.py --dry-run
 
 # 配置新 bot（校验 token、验证能否私聊、写回 config.json）
-python tools/setup_bot.py <BOT_TOKEN> 123132586
+python tools/setup_bot.py <BOT_TOKEN> <你的数字ID>
 
 # 发 3 条样卡到私聊（不动去重状态，改样式后用它验收）
 python tools/preview.py 3
