@@ -2,22 +2,6 @@
  "version": 2,
  "initialized": true,
  "seen": {
-  "u:cnbeta.com.tw/articles/soft/1586550.htm": [
-   1794809455,
-   "7916bf75b0"
-  ],
-  "u:cnbeta.com.tw/articles/soft/1586552.htm": [
-   1794809736,
-   "7f270df11b"
-  ],
-  "u:cnbeta.com.tw/articles/soft/1586554.htm": [
-   1794809746,
-   "30759be8fc"
-  ],
-  "u:cnbeta.com.tw/articles/soft/1586556.htm": [
-   1794809757,
-   "b8bf32d490"
-  ],
   "u:cnbeta.com.tw/articles/soft/1586558.htm": [
    1794810040,
    "34bbd05702"
@@ -1941,7 +1925,23 @@
   "u:cnbeta.com.tw/articles/soft/1587542.htm": [
    1795414240,
    "91ab9ebad8"
+  ],
+  "u:cnbeta.com.tw/articles/soft/1587544.htm": [
+   1795414534,
+   "02f3e5aeb3"
+  ],
+  "u:cnbeta.com.tw/articles/soft/1587546.htm": [
+   1795414545,
+   "645e4b28e6"
+  ],
+  "u:cnbeta.com.tw/articles/soft/1587548.htm": [
+   1795414556,
+   "ce014e527f"
+  ],
+  "u:cnbeta.com.tw/articles/soft/1587550.htm": [
+   1795414567,
+   "44d2857d28"
   ]
  },
- "updated": "2026-11-23T06:10:44+00:00"
+ "updated": "2026-11-23T06:16:11+00:00"
 }
