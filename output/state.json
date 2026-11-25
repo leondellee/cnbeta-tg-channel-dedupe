@@ -2,14 +2,6 @@
  "version": 2,
  "initialized": true,
  "seen": {
-  "u:cnbeta.com.tw/articles/soft/1586872.htm": [
-   1794981031,
-   "72769e3a79"
-  ],
-  "u:cnbeta.com.tw/articles/soft/1586874.htm": [
-   1794981329,
-   "b8145c9ff2"
-  ],
   "u:cnbeta.com.tw/articles/soft/1586876.htm": [
    1794981638,
    "4e12b9ee89"
@@ -2009,7 +2001,15 @@
   "u:cnbeta.com.tw/articles/soft/1587890.htm": [
    1795585550,
    "77d6b322c5"
+  ],
+  "u:cnbeta.com.tw/articles/soft/1587892.htm": [
+   1795586133,
+   "85132c6d77"
+  ],
+  "u:cnbeta.com.tw/articles/soft/1587894.htm": [
+   1795586145,
+   "d2bcd95d62"
   ]
  },
- "updated": "2026-11-25T05:50:24+00:00"
+ "updated": "2026-11-25T05:55:48+00:00"
 }
