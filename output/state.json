@@ -2,18 +2,6 @@
  "version": 2,
  "initialized": true,
  "seen": {
-  "u:cnbeta.com.tw/articles/soft/1587020.htm": [
-   1795056632,
-   "174a3671f9"
-  ],
-  "u:cnbeta.com.tw/articles/soft/1587022.htm": [
-   1795056643,
-   "f850ac1aba"
-  ],
-  "u:cnbeta.com.tw/articles/soft/1587024.htm": [
-   1795056654,
-   "2fbde964a2"
-  ],
   "u:cnbeta.com.tw/articles/soft/1587026.htm": [
    1795056933,
    "7f0d7023a6"
@@ -1835,5 +1823,5 @@
    "f62e267332"
   ]
  },
- "updated": "2026-11-26T02:50:22+00:00"
+ "updated": "2026-11-26T02:55:23+00:00"
 }
